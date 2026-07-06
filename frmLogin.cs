@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace prySistemaPrestamosEquipoComputo
 {
-    public partial class fmrLogin : Form
+    public partial class frmLogin : Form
     {
-        public fmrLogin()
+        public frmLogin()
         {
             InitializeComponent();
         }
