@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnAcceso = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtClaveAcceso = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,12 +66,12 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.btnAcceso);
+            this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtClaveAcceso);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -89,26 +91,28 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿Olvidaste tu contraseña?";
             // 
-            // button1
+            // btnAcceso
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(68, 302);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 28);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Acceder";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAcceso.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAcceso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAcceso.Location = new System.Drawing.Point(68, 302);
+            this.btnAcceso.Name = "btnAcceso";
+            this.btnAcceso.Size = new System.Drawing.Size(187, 28);
+            this.btnAcceso.TabIndex = 8;
+            this.btnAcceso.Text = "Acceder";
+            this.btnAcceso.UseVisualStyleBackColor = false;
+            this.btnAcceso.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
+            // txtPassword
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox3.Location = new System.Drawing.Point(68, 254);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(187, 22);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.Text = "Ingrese su contraseña";
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txtPassword.Location = new System.Drawing.Point(68, 254);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(187, 22);
+            this.txtPassword.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtPassword, "Ingrese contraseña");
             // 
             // label4
             // 
@@ -121,15 +125,15 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Contraseña";
             // 
-            // textBox2
+            // txtClaveAcceso
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox2.Location = new System.Drawing.Point(68, 194);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 22);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "matricula / clave trabajador";
+            this.txtClaveAcceso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClaveAcceso.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txtClaveAcceso.Location = new System.Drawing.Point(68, 194);
+            this.txtClaveAcceso.Name = "txtClaveAcceso";
+            this.txtClaveAcceso.Size = new System.Drawing.Size(187, 22);
+            this.txtClaveAcceso.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtClaveAcceso, "Matricula / Clave de trabajador");
             // 
             // label3
             // 
@@ -142,15 +146,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Clave de Acceso";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox1.Location = new System.Drawing.Point(68, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 22);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Ingrese su usuario";
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txtUsuario.Location = new System.Drawing.Point(68, 136);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(187, 22);
+            this.txtUsuario.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtUsuario, "Ingrese usuario");
             // 
             // label2
             // 
@@ -205,7 +209,6 @@
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.Text = "frmLogin";
- 
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -220,15 +223,16 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnAcceso;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtClaveAcceso;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
