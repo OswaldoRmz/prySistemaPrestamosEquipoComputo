@@ -15,6 +15,67 @@ namespace prySistemaPrestamosEquipoComputo
         public frmVentanaPrestamos()
         {
             InitializeComponent();
+            //Llamar el procedimiento de fondos transparentes
+            prcfondoPadre();
+            //HACER REFERENCIA A NUESTROS PICTUREBOX A USAR EL EVENTO
+            //pcbPrstamo
+            this.pcbPrestamos.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.pcbPrestamos.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            //pcbInicio
+            this.pcbInicio.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.pcbInicio.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            //pcbDevoliciones
+            this.pcbDevoluciones.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.pcbDevoluciones.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            //pcbInventario
+            this.pcbInventario.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.pcbInventario.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            //pcbReportes
+            this.pcbReportes.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.pcbReportes.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            //pcbCerrarSesion
+            this.pcbSesion.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.pcbSesion.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            //pnlEncabezado
+            cambioColor();
         }
+        //Poner fondo del contenedor padre
+        public void prcfondoPadre()
+        {
+            pcbTituloPC.Parent = pcbFondoIncio;
+            pcbInicio.Parent = pcbFondoIncio;
+            pcbPrestamos.Parent = pcbFondoIncio;
+            pcbDevoluciones.Parent = pcbFondoIncio;
+            pcbInventario.Parent = pcbFondoIncio;
+            pcbReportes.Parent = pcbFondoIncio;
+            pcbSesion.Parent = pcbFondoIncio;
+            pcbUsuario.Parent = pcbFondoIncio;
+            lblRaya.Parent = pcbFondoIncio;
+        }
+        public void cambioColor()
+        {            
+            pnlEncabezado.BackColor = Color.FromArgb(162, 196, 201);     
+        }
+        //Evento para el cuando pase el mouse por encima del objeto PictureBox
+        private void PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            pb.BackColor = Color.FromArgb(214, 234, 223);
+        }
+        //Evento para cuando salga el mouse del objeto PictureBox
+        private void PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            pb.BackColor = Color.Transparent;
+        }
+
+        private void pcbInicio_Click(object sender, EventArgs e)
+        {
+            frmPantallaPrincipal principal = new frmPantallaPrincipal();
+            principal.Show();
+            principal.MaximizeBox = true;
+            this.Hide();
+        }
+       
     }
 }
