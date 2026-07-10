@@ -58,6 +58,12 @@
     <Compile Include="frmPantallaPrincipal.Designer.cs">
       <DependentUpon>frmPantallaPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroUsuarios.Designer.cs">
+      <DependentUpon>frmRegistroUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVentanaDevoluciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPantallaPrincipal.resx">
       <DependentUpon>frmPantallaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroUsuarios.resx">
+      <DependentUpon>frmRegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentanaPrestamos.resx">
       <DependentUpon>frmVentanaPrestamos.cs</DependentUpon>
