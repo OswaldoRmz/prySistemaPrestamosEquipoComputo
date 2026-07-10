@@ -96,6 +96,9 @@
     <EmbeddedResource Include="frmVentanaPrestamos.resx">
       <DependentUpon>frmVentanaPrestamos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVentanaDevoluciones.resx">
+      <DependentUpon>frmVentanaDevoluciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
