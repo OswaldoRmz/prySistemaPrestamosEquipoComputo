@@ -93,6 +93,9 @@
     <EmbeddedResource Include="frmRegistroUsuarios.resx">
       <DependentUpon>frmRegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVentanaInventario.resx">
+      <DependentUpon>frmVentanaInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVentanaPrestamos.resx">
       <DependentUpon>frmVentanaPrestamos.cs</DependentUpon>
     </EmbeddedResource>
