@@ -66,6 +66,12 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.grbDatosUsuario = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbTituloPC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInicio)).BeginInit();
@@ -78,6 +84,7 @@
             this.grbUsuarios.SuspendLayout();
             this.panelDatosAcademicos.SuspendLayout();
             this.panelDatosUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbFondoIncio
@@ -201,6 +208,8 @@
             // 
             // grbUsuarios
             // 
+            this.grbUsuarios.BackColor = System.Drawing.Color.White;
+            this.grbUsuarios.Controls.Add(this.dataGridView1);
             this.grbUsuarios.Controls.Add(this.btnCancelar);
             this.grbUsuarios.Controls.Add(this.btnRegistrar);
             this.grbUsuarios.Controls.Add(this.grbDatosAcademicos);
@@ -221,10 +230,9 @@
             this.btnCancelar.BackColor = System.Drawing.Color.Red;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(630, 719);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(840, 885);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(326, 37);
+            this.btnCancelar.Size = new System.Drawing.Size(435, 46);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -233,10 +241,9 @@
             // 
             this.btnRegistrar.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(198, 719);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegistrar.Location = new System.Drawing.Point(264, 885);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(326, 37);
+            this.btnRegistrar.Size = new System.Drawing.Size(435, 46);
             this.btnRegistrar.TabIndex = 2;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
@@ -244,11 +251,9 @@
             // grbDatosAcademicos
             // 
             this.grbDatosAcademicos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
-            this.grbDatosAcademicos.Location = new System.Drawing.Point(70, 451);
-            this.grbDatosAcademicos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbDatosAcademicos.Location = new System.Drawing.Point(96, 555);
             this.grbDatosAcademicos.Name = "grbDatosAcademicos";
-            this.grbDatosAcademicos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grbDatosAcademicos.Size = new System.Drawing.Size(1012, 38);
+            this.grbDatosAcademicos.Size = new System.Drawing.Size(700, 47);
             this.grbDatosAcademicos.TabIndex = 1;
             this.grbDatosAcademicos.TabStop = false;
             this.grbDatosAcademicos.Text = "Datos Academicos";
@@ -256,6 +261,7 @@
             // panelDatosAcademicos
             // 
             this.panelDatosAcademicos.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelDatosAcademicos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelDatosAcademicos.Controls.Add(this.cmbArea);
             this.panelDatosAcademicos.Controls.Add(this.cmbTipo);
             this.panelDatosAcademicos.Controls.Add(this.txtGrupo);
@@ -264,56 +270,50 @@
             this.panelDatosAcademicos.Controls.Add(this.lblGrado);
             this.panelDatosAcademicos.Controls.Add(this.lblArea);
             this.panelDatosAcademicos.Controls.Add(this.lblTipo);
-            this.panelDatosAcademicos.Location = new System.Drawing.Point(72, 451);
-            this.panelDatosAcademicos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelDatosAcademicos.Location = new System.Drawing.Point(96, 555);
             this.panelDatosAcademicos.Name = "panelDatosAcademicos";
-            this.panelDatosAcademicos.Size = new System.Drawing.Size(1012, 197);
+            this.panelDatosAcademicos.Size = new System.Drawing.Size(700, 243);
             this.panelDatosAcademicos.TabIndex = 1;
             // 
             // cmbArea
             // 
             this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(126, 98);
-            this.cmbArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbArea.Location = new System.Drawing.Point(168, 120);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(327, 27);
+            this.cmbArea.Size = new System.Drawing.Size(435, 33);
             this.cmbArea.TabIndex = 16;
             // 
             // cmbTipo
             // 
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(126, 58);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbTipo.Location = new System.Drawing.Point(168, 71);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(327, 27);
+            this.cmbTipo.Size = new System.Drawing.Size(435, 33);
             this.cmbTipo.TabIndex = 15;
             // 
             // txtGrupo
             // 
             this.txtGrupo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGrupo.Location = new System.Drawing.Point(317, 145);
-            this.txtGrupo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGrupo.Location = new System.Drawing.Point(423, 179);
             this.txtGrupo.Name = "txtGrupo";
-            this.txtGrupo.Size = new System.Drawing.Size(136, 27);
+            this.txtGrupo.Size = new System.Drawing.Size(180, 31);
             this.txtGrupo.TabIndex = 14;
             // 
             // txtGrado
             // 
             this.txtGrado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGrado.Location = new System.Drawing.Point(126, 145);
-            this.txtGrado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGrado.Location = new System.Drawing.Point(168, 179);
             this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(130, 27);
+            this.txtGrado.Size = new System.Drawing.Size(173, 31);
             this.txtGrado.TabIndex = 13;
             // 
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
             this.lblGrupo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupo.Location = new System.Drawing.Point(260, 145);
-            this.lblGrupo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGrupo.Location = new System.Drawing.Point(347, 178);
             this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(57, 21);
+            this.lblGrupo.Size = new System.Drawing.Size(70, 28);
             this.lblGrupo.TabIndex = 3;
             this.lblGrupo.Text = "Grupo";
             // 
@@ -321,10 +321,9 @@
             // 
             this.lblGrado.AutoSize = true;
             this.lblGrado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrado.Location = new System.Drawing.Point(19, 148);
-            this.lblGrado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGrado.Location = new System.Drawing.Point(25, 182);
             this.lblGrado.Name = "lblGrado";
-            this.lblGrado.Size = new System.Drawing.Size(56, 21);
+            this.lblGrado.Size = new System.Drawing.Size(69, 28);
             this.lblGrado.TabIndex = 2;
             this.lblGrado.Text = "Grado";
             // 
@@ -332,10 +331,9 @@
             // 
             this.lblArea.AutoSize = true;
             this.lblArea.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArea.Location = new System.Drawing.Point(21, 102);
-            this.lblArea.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblArea.Location = new System.Drawing.Point(28, 125);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(45, 21);
+            this.lblArea.Size = new System.Drawing.Size(56, 28);
             this.lblArea.TabIndex = 1;
             this.lblArea.Text = "Area";
             // 
@@ -343,16 +341,16 @@
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(19, 55);
-            this.lblTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTipo.Location = new System.Drawing.Point(25, 68);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(44, 21);
+            this.lblTipo.Size = new System.Drawing.Size(54, 28);
             this.lblTipo.TabIndex = 0;
             this.lblTipo.Text = "Tipo";
             // 
             // panelDatosUsuario
             // 
             this.panelDatosUsuario.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelDatosUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelDatosUsuario.Controls.Add(this.txtCorreo);
             this.panelDatosUsuario.Controls.Add(this.txtTelefono);
             this.panelDatosUsuario.Controls.Add(this.txtAMaterno);
@@ -366,10 +364,9 @@
             this.panelDatosUsuario.Controls.Add(this.lblNombre);
             this.panelDatosUsuario.Controls.Add(this.lblMatricula);
             this.panelDatosUsuario.Controls.Add(this.grbDatosUsuario);
-            this.panelDatosUsuario.Location = new System.Drawing.Point(72, 56);
-            this.panelDatosUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelDatosUsuario.Location = new System.Drawing.Point(96, 69);
             this.panelDatosUsuario.Name = "panelDatosUsuario";
-            this.panelDatosUsuario.Size = new System.Drawing.Size(1012, 357);
+            this.panelDatosUsuario.Size = new System.Drawing.Size(700, 439);
             this.panelDatosUsuario.TabIndex = 0;
             // 
             // txtCorreo
@@ -384,56 +381,50 @@
             // txtTelefono
             // 
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTelefono.Location = new System.Drawing.Point(126, 258);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefono.Location = new System.Drawing.Point(168, 317);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(327, 27);
+            this.txtTelefono.Size = new System.Drawing.Size(435, 31);
             this.txtTelefono.TabIndex = 11;
             // 
             // txtAMaterno
             // 
             this.txtAMaterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAMaterno.Location = new System.Drawing.Point(126, 209);
-            this.txtAMaterno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAMaterno.Location = new System.Drawing.Point(168, 257);
             this.txtAMaterno.Name = "txtAMaterno";
-            this.txtAMaterno.Size = new System.Drawing.Size(327, 27);
+            this.txtAMaterno.Size = new System.Drawing.Size(435, 31);
             this.txtAMaterno.TabIndex = 10;
             // 
             // txtAPaterno
             // 
             this.txtAPaterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAPaterno.Location = new System.Drawing.Point(126, 157);
-            this.txtAPaterno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAPaterno.Location = new System.Drawing.Point(168, 193);
             this.txtAPaterno.Name = "txtAPaterno";
-            this.txtAPaterno.Size = new System.Drawing.Size(327, 27);
+            this.txtAPaterno.Size = new System.Drawing.Size(435, 31);
             this.txtAPaterno.TabIndex = 9;
             // 
             // txtNombre
             // 
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombre.Location = new System.Drawing.Point(126, 102);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Location = new System.Drawing.Point(168, 125);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(327, 27);
+            this.txtNombre.Size = new System.Drawing.Size(435, 31);
             this.txtNombre.TabIndex = 8;
             // 
             // txtMatricula
             // 
             this.txtMatricula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMatricula.Location = new System.Drawing.Point(126, 60);
-            this.txtMatricula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMatricula.Location = new System.Drawing.Point(168, 74);
             this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(327, 27);
+            this.txtMatricula.Size = new System.Drawing.Size(435, 31);
             this.txtMatricula.TabIndex = 7;
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(21, 310);
-            this.lblCorreo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCorreo.Location = new System.Drawing.Point(28, 381);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(61, 21);
+            this.lblCorreo.Size = new System.Drawing.Size(75, 28);
             this.lblCorreo.TabIndex = 6;
             this.lblCorreo.Text = "Correo";
             // 
@@ -441,10 +432,9 @@
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(19, 260);
-            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTelefono.Location = new System.Drawing.Point(25, 320);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(77, 21);
+            this.lblTelefono.Size = new System.Drawing.Size(94, 28);
             this.lblTelefono.TabIndex = 5;
             this.lblTelefono.Text = "Telefono";
             // 
@@ -452,10 +442,9 @@
             // 
             this.lblAMaterno.AutoSize = true;
             this.lblAMaterno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAMaterno.Location = new System.Drawing.Point(21, 195);
-            this.lblAMaterno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAMaterno.Location = new System.Drawing.Point(28, 240);
             this.lblAMaterno.Name = "lblAMaterno";
-            this.lblAMaterno.Size = new System.Drawing.Size(75, 42);
+            this.lblAMaterno.Size = new System.Drawing.Size(93, 56);
             this.lblAMaterno.TabIndex = 4;
             this.lblAMaterno.Text = "Apellido\r\nMaterno";
             // 
@@ -463,10 +452,9 @@
             // 
             this.lblAPaterno.AutoSize = true;
             this.lblAPaterno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAPaterno.Location = new System.Drawing.Point(21, 136);
-            this.lblAPaterno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAPaterno.Location = new System.Drawing.Point(28, 168);
             this.lblAPaterno.Name = "lblAPaterno";
-            this.lblAPaterno.Size = new System.Drawing.Size(75, 42);
+            this.lblAPaterno.Size = new System.Drawing.Size(91, 56);
             this.lblAPaterno.TabIndex = 3;
             this.lblAPaterno.Text = "Apellido\r\nPaterno";
             // 
@@ -474,10 +462,9 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(22, 101);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNombre.Location = new System.Drawing.Point(30, 124);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(73, 21);
+            this.lblNombre.Size = new System.Drawing.Size(89, 28);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
@@ -485,10 +472,9 @@
             // 
             this.lblMatricula.AutoSize = true;
             this.lblMatricula.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatricula.Location = new System.Drawing.Point(21, 63);
-            this.lblMatricula.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMatricula.Location = new System.Drawing.Point(28, 77);
             this.lblMatricula.Name = "lblMatricula";
-            this.lblMatricula.Size = new System.Drawing.Size(83, 21);
+            this.lblMatricula.Size = new System.Drawing.Size(103, 28);
             this.lblMatricula.TabIndex = 1;
             this.lblMatricula.Text = "Matricula";
             // 
@@ -496,13 +482,70 @@
             // 
             this.grbDatosUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
             this.grbDatosUsuario.Location = new System.Drawing.Point(0, 0);
-            this.grbDatosUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grbDatosUsuario.Name = "grbDatosUsuario";
-            this.grbDatosUsuario.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grbDatosUsuario.Size = new System.Drawing.Size(1012, 38);
+            this.grbDatosUsuario.Size = new System.Drawing.Size(1350, 47);
             this.grbDatosUsuario.TabIndex = 0;
             this.grbDatosUsuario.TabStop = false;
             this.grbDatosUsuario.Text = "Datos del Usuario";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.matricula,
+            this.nombre,
+            this.paterno,
+            this.materno,
+            this.telefono});
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridView1.Location = new System.Drawing.Point(840, 69);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(677, 729);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // matricula
+            // 
+            this.matricula.HeaderText = "Matricula";
+            this.matricula.MinimumWidth = 6;
+            this.matricula.Name = "matricula";
+            this.matricula.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // paterno
+            // 
+            this.paterno.HeaderText = "Apellido Paterno";
+            this.paterno.MinimumWidth = 6;
+            this.paterno.Name = "paterno";
+            this.paterno.ReadOnly = true;
+            // 
+            // materno
+            // 
+            this.materno.HeaderText = "Apellido Materno";
+            this.materno.MinimumWidth = 6;
+            this.materno.Name = "materno";
+            this.materno.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.MinimumWidth = 6;
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
             // 
             // frmRegistroUsuarios
             // 
@@ -538,6 +581,7 @@
             this.panelDatosAcademicos.PerformLayout();
             this.panelDatosUsuario.ResumeLayout(false);
             this.panelDatosUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,5 +625,11 @@
         private System.Windows.Forms.TextBox txtGrado;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matricula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paterno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
     }
 }
