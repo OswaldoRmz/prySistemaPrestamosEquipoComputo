@@ -36,7 +36,10 @@ namespace prySistemaPrestamosEquipoComputo
             //pcbCerrarSesion
             this.pcbSesion.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
             this.pcbSesion.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            // pcbInventario EVENTO CLICK
+            this.pcbInventario.Click += new System.EventHandler(this.pcbInventario_Click);
         }
+        
         //Poner fondo del contenedor padre
         public void prcfondoPadre()
         {
@@ -86,6 +89,12 @@ namespace prySistemaPrestamosEquipoComputo
             prestamo.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
-        
+        // Abrir el formulario Inventario
+        private void pcbInventario_Click(object sender, EventArgs e)
+        {
+            frmVentanaInventario inventario = new frmVentanaInventario();
+            inventario.Show();
+            this.Hide();
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace prySistemaPrestamosEquipoComputo
             this.pcbSesion.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
             this.pcbSesion.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             //pnlEncabezado
-            cambioColor();
+            
         }
         //Poner fondo del contenedor padre
         public void prcfondoPadre()
@@ -52,10 +52,7 @@ namespace prySistemaPrestamosEquipoComputo
             pcbUsuario.Parent = pcbFondoIncio;
             lblRaya.Parent = pcbFondoIncio;
         }
-        public void cambioColor()
-        {            
-            pnlEncabezado.BackColor = Color.FromArgb(162, 196, 201);     
-        }
+        
         //Evento para el cuando pase el mouse por encima del objeto PictureBox
         private void PictureBox_MouseEnter(object sender, EventArgs e)
         {

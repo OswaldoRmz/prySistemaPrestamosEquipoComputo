@@ -86,6 +86,6 @@ namespace prySistemaPrestamosEquipoComputo
             prestamo.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
-           
+    
     }
 }
