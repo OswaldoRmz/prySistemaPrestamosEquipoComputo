@@ -97,9 +97,10 @@
             // 
             this.pcbFondoIncio.BackColor = System.Drawing.Color.Transparent;
             this.pcbFondoIncio.Image = ((System.Drawing.Image)(resources.GetObject("pcbFondoIncio.Image")));
-            this.pcbFondoIncio.Location = new System.Drawing.Point(0, -3);
+            this.pcbFondoIncio.Location = new System.Drawing.Point(0, -2);
+            this.pcbFondoIncio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbFondoIncio.Name = "pcbFondoIncio";
-            this.pcbFondoIncio.Size = new System.Drawing.Size(339, 1040);
+            this.pcbFondoIncio.Size = new System.Drawing.Size(254, 845);
             this.pcbFondoIncio.TabIndex = 5;
             this.pcbFondoIncio.TabStop = false;
             // 
@@ -107,9 +108,10 @@
             // 
             this.pcbTituloPC.BackColor = System.Drawing.Color.Transparent;
             this.pcbTituloPC.Image = ((System.Drawing.Image)(resources.GetObject("pcbTituloPC.Image")));
-            this.pcbTituloPC.Location = new System.Drawing.Point(0, 12);
+            this.pcbTituloPC.Location = new System.Drawing.Point(0, 10);
+            this.pcbTituloPC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbTituloPC.Name = "pcbTituloPC";
-            this.pcbTituloPC.Size = new System.Drawing.Size(335, 120);
+            this.pcbTituloPC.Size = new System.Drawing.Size(251, 98);
             this.pcbTituloPC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbTituloPC.TabIndex = 6;
             this.pcbTituloPC.TabStop = false;
@@ -118,9 +120,10 @@
             // 
             this.pcbInicio.BackColor = System.Drawing.Color.Transparent;
             this.pcbInicio.Image = ((System.Drawing.Image)(resources.GetObject("pcbInicio.Image")));
-            this.pcbInicio.Location = new System.Drawing.Point(0, 173);
+            this.pcbInicio.Location = new System.Drawing.Point(0, 141);
+            this.pcbInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbInicio.Name = "pcbInicio";
-            this.pcbInicio.Size = new System.Drawing.Size(337, 90);
+            this.pcbInicio.Size = new System.Drawing.Size(253, 73);
             this.pcbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInicio.TabIndex = 9;
             this.pcbInicio.TabStop = false;
@@ -129,9 +132,10 @@
             // 
             this.pcbPrestamos.BackColor = System.Drawing.Color.Transparent;
             this.pcbPrestamos.Image = ((System.Drawing.Image)(resources.GetObject("pcbPrestamos.Image")));
-            this.pcbPrestamos.Location = new System.Drawing.Point(0, 306);
+            this.pcbPrestamos.Location = new System.Drawing.Point(0, 249);
+            this.pcbPrestamos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbPrestamos.Name = "pcbPrestamos";
-            this.pcbPrestamos.Size = new System.Drawing.Size(337, 90);
+            this.pcbPrestamos.Size = new System.Drawing.Size(253, 73);
             this.pcbPrestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbPrestamos.TabIndex = 10;
             this.pcbPrestamos.TabStop = false;
@@ -140,9 +144,10 @@
             // 
             this.pcbDevoluciones.BackColor = System.Drawing.Color.Transparent;
             this.pcbDevoluciones.Image = ((System.Drawing.Image)(resources.GetObject("pcbDevoluciones.Image")));
-            this.pcbDevoluciones.Location = new System.Drawing.Point(0, 439);
+            this.pcbDevoluciones.Location = new System.Drawing.Point(0, 357);
+            this.pcbDevoluciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbDevoluciones.Name = "pcbDevoluciones";
-            this.pcbDevoluciones.Size = new System.Drawing.Size(337, 90);
+            this.pcbDevoluciones.Size = new System.Drawing.Size(253, 73);
             this.pcbDevoluciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbDevoluciones.TabIndex = 11;
             this.pcbDevoluciones.TabStop = false;
@@ -151,9 +156,10 @@
             // 
             this.pcbInventario.BackColor = System.Drawing.Color.Transparent;
             this.pcbInventario.Image = ((System.Drawing.Image)(resources.GetObject("pcbInventario.Image")));
-            this.pcbInventario.Location = new System.Drawing.Point(0, 572);
+            this.pcbInventario.Location = new System.Drawing.Point(0, 465);
+            this.pcbInventario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbInventario.Name = "pcbInventario";
-            this.pcbInventario.Size = new System.Drawing.Size(337, 90);
+            this.pcbInventario.Size = new System.Drawing.Size(253, 73);
             this.pcbInventario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInventario.TabIndex = 12;
             this.pcbInventario.TabStop = false;
@@ -162,9 +168,10 @@
             // 
             this.pcbReportes.BackColor = System.Drawing.Color.Transparent;
             this.pcbReportes.Image = ((System.Drawing.Image)(resources.GetObject("pcbReportes.Image")));
-            this.pcbReportes.Location = new System.Drawing.Point(0, 705);
+            this.pcbReportes.Location = new System.Drawing.Point(0, 573);
+            this.pcbReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbReportes.Name = "pcbReportes";
-            this.pcbReportes.Size = new System.Drawing.Size(337, 90);
+            this.pcbReportes.Size = new System.Drawing.Size(253, 73);
             this.pcbReportes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbReportes.TabIndex = 13;
             this.pcbReportes.TabStop = false;
@@ -173,9 +180,10 @@
             // 
             this.pcbUsuario.BackColor = System.Drawing.Color.Transparent;
             this.pcbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pcbUsuario.Image")));
-            this.pcbUsuario.Location = new System.Drawing.Point(0, 825);
+            this.pcbUsuario.Location = new System.Drawing.Point(0, 670);
+            this.pcbUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbUsuario.Name = "pcbUsuario";
-            this.pcbUsuario.Size = new System.Drawing.Size(337, 90);
+            this.pcbUsuario.Size = new System.Drawing.Size(253, 73);
             this.pcbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbUsuario.TabIndex = 14;
             this.pcbUsuario.TabStop = false;
@@ -185,9 +193,10 @@
             this.lblRaya.AutoSize = true;
             this.lblRaya.BackColor = System.Drawing.Color.Transparent;
             this.lblRaya.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRaya.Location = new System.Drawing.Point(-3, 807);
+            this.lblRaya.Location = new System.Drawing.Point(-2, 656);
+            this.lblRaya.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRaya.Name = "lblRaya";
-            this.lblRaya.Size = new System.Drawing.Size(340, 25);
+            this.lblRaya.Size = new System.Drawing.Size(255, 20);
             this.lblRaya.TabIndex = 15;
             this.lblRaya.Text = "-----------------------------------------";
             // 
@@ -195,9 +204,10 @@
             // 
             this.pcbSesion.BackColor = System.Drawing.Color.Transparent;
             this.pcbSesion.Image = ((System.Drawing.Image)(resources.GetObject("pcbSesion.Image")));
-            this.pcbSesion.Location = new System.Drawing.Point(0, 921);
+            this.pcbSesion.Location = new System.Drawing.Point(0, 748);
+            this.pcbSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pcbSesion.Name = "pcbSesion";
-            this.pcbSesion.Size = new System.Drawing.Size(337, 90);
+            this.pcbSesion.Size = new System.Drawing.Size(253, 73);
             this.pcbSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbSesion.TabIndex = 16;
             this.pcbSesion.TabStop = false;
@@ -214,9 +224,11 @@
             this.grbUsuarios.Controls.Add(this.panelDatosAcademicos);
             this.grbUsuarios.Controls.Add(this.panelDatosUsuario);
             this.grbUsuarios.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbUsuarios.Location = new System.Drawing.Point(341, -3);
+            this.grbUsuarios.Location = new System.Drawing.Point(256, -2);
+            this.grbUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grbUsuarios.Name = "grbUsuarios";
-            this.grbUsuarios.Size = new System.Drawing.Size(1560, 1040);
+            this.grbUsuarios.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbUsuarios.Size = new System.Drawing.Size(1170, 845);
             this.grbUsuarios.TabIndex = 17;
             this.grbUsuarios.TabStop = false;
             this.grbUsuarios.Text = "Registro de Usuarios";
@@ -476,9 +488,10 @@
             // txtCorreo
             // 
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCorreo.Location = new System.Drawing.Point(168, 378);
+            this.txtCorreo.Location = new System.Drawing.Point(126, 307);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(435, 31);
+            this.txtCorreo.Size = new System.Drawing.Size(327, 27);
             this.txtCorreo.TabIndex = 12;
             // 
             // txtTelefono
@@ -593,9 +606,9 @@
             // 
             // frmRegistroUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.grbUsuarios);
             this.Controls.Add(this.pcbSesion);
             this.Controls.Add(this.lblRaya);
@@ -607,8 +620,10 @@
             this.Controls.Add(this.pcbInicio);
             this.Controls.Add(this.pcbTituloPC);
             this.Controls.Add(this.pcbFondoIncio);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmRegistroUsuarios";
             this.Text = "frmRegistroUsuarios";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbTituloPC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInicio)).EndInit();
