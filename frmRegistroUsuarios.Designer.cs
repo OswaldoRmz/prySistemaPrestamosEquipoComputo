@@ -40,6 +40,12 @@
             this.lblRaya = new System.Windows.Forms.Label();
             this.pcbSesion = new System.Windows.Forms.PictureBox();
             this.grbUsuarios = new System.Windows.Forms.GroupBox();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.grbDatosAcademicos = new System.Windows.Forms.GroupBox();
@@ -66,12 +72,11 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.grbDatosUsuario = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grbFiltro = new System.Windows.Forms.GroupBox();
+            this.panelFiltro = new System.Windows.Forms.Panel();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.txtFiltroMatricula = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbTituloPC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInicio)).BeginInit();
@@ -82,9 +87,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).BeginInit();
             this.grbUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panelDatosAcademicos.SuspendLayout();
             this.panelDatosUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // pcbFondoIncio
@@ -199,7 +205,9 @@
             // grbUsuarios
             // 
             this.grbUsuarios.BackColor = System.Drawing.Color.White;
-            this.grbUsuarios.Controls.Add(this.dataGridView1);
+            this.grbUsuarios.Controls.Add(this.grbFiltro);
+            this.grbUsuarios.Controls.Add(this.panelFiltro);
+            this.grbUsuarios.Controls.Add(this.dgvUsuarios);
             this.grbUsuarios.Controls.Add(this.btnCancelar);
             this.grbUsuarios.Controls.Add(this.btnRegistrar);
             this.grbUsuarios.Controls.Add(this.grbDatosAcademicos);
@@ -212,6 +220,65 @@
             this.grbUsuarios.TabIndex = 17;
             this.grbUsuarios.TabStop = false;
             this.grbUsuarios.Text = "Registro de Usuarios";
+            // 
+            // dgvUsuarios
+            // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.matricula,
+            this.nombre,
+            this.paterno,
+            this.materno,
+            this.telefono});
+            this.dgvUsuarios.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvUsuarios.Location = new System.Drawing.Point(840, 207);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.RowHeadersVisible = false;
+            this.dgvUsuarios.RowHeadersWidth = 51;
+            this.dgvUsuarios.RowTemplate.Height = 24;
+            this.dgvUsuarios.Size = new System.Drawing.Size(677, 591);
+            this.dgvUsuarios.TabIndex = 4;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // matricula
+            // 
+            this.matricula.HeaderText = "Matricula";
+            this.matricula.MinimumWidth = 6;
+            this.matricula.Name = "matricula";
+            this.matricula.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // paterno
+            // 
+            this.paterno.HeaderText = "Apellido Paterno";
+            this.paterno.MinimumWidth = 6;
+            this.paterno.Name = "paterno";
+            this.paterno.ReadOnly = true;
+            // 
+            // materno
+            // 
+            this.materno.HeaderText = "Apellido Materno";
+            this.materno.MinimumWidth = 6;
+            this.materno.Name = "materno";
+            this.materno.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.MinimumWidth = 6;
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
             // 
             // btnCancelar
             // 
@@ -239,7 +306,7 @@
             // grbDatosAcademicos
             // 
             this.grbDatosAcademicos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
-            this.grbDatosAcademicos.Location = new System.Drawing.Point(96, 555);
+            this.grbDatosAcademicos.Location = new System.Drawing.Point(97, 555);
             this.grbDatosAcademicos.Name = "grbDatosAcademicos";
             this.grbDatosAcademicos.Size = new System.Drawing.Size(700, 47);
             this.grbDatosAcademicos.TabIndex = 1;
@@ -356,6 +423,7 @@
             this.panelDatosUsuario.Name = "panelDatosUsuario";
             this.panelDatosUsuario.Size = new System.Drawing.Size(700, 439);
             this.panelDatosUsuario.TabIndex = 0;
+            this.panelDatosUsuario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDatosUsuario_Paint);
             // 
             // txtCorreo
             // 
@@ -470,69 +538,58 @@
             this.grbDatosUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
             this.grbDatosUsuario.Location = new System.Drawing.Point(0, 0);
             this.grbDatosUsuario.Name = "grbDatosUsuario";
-            this.grbDatosUsuario.Size = new System.Drawing.Size(1350, 47);
+            this.grbDatosUsuario.Size = new System.Drawing.Size(699, 47);
             this.grbDatosUsuario.TabIndex = 0;
             this.grbDatosUsuario.TabStop = false;
             this.grbDatosUsuario.Text = "Datos del Usuario";
             // 
-            // dataGridView1
+            // grbFiltro
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.matricula,
-            this.nombre,
-            this.paterno,
-            this.materno,
-            this.telefono});
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.Location = new System.Drawing.Point(840, 69);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(677, 729);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.grbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
+            this.grbFiltro.Location = new System.Drawing.Point(840, 70);
+            this.grbFiltro.Name = "grbFiltro";
+            this.grbFiltro.Size = new System.Drawing.Size(677, 47);
+            this.grbFiltro.TabIndex = 5;
+            this.grbFiltro.TabStop = false;
+            this.grbFiltro.Text = "Filtro de Busqueda";
             // 
-            // matricula
+            // panelFiltro
             // 
-            this.matricula.HeaderText = "Matricula";
-            this.matricula.MinimumWidth = 6;
-            this.matricula.Name = "matricula";
-            this.matricula.ReadOnly = true;
+            this.panelFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFiltro.Controls.Add(this.btnBuscar);
+            this.panelFiltro.Controls.Add(this.txtFiltroMatricula);
+            this.panelFiltro.Controls.Add(this.lblFiltro);
+            this.panelFiltro.Location = new System.Drawing.Point(840, 70);
+            this.panelFiltro.Name = "panelFiltro";
+            this.panelFiltro.Size = new System.Drawing.Size(677, 105);
+            this.panelFiltro.TabIndex = 6;
             // 
-            // nombre
+            // lblFiltro
             // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(12, 61);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(93, 25);
+            this.lblFiltro.TabIndex = 0;
+            this.lblFiltro.Text = "Matricula";
             // 
-            // paterno
+            // txtFiltroMatricula
             // 
-            this.paterno.HeaderText = "Apellido Paterno";
-            this.paterno.MinimumWidth = 6;
-            this.paterno.Name = "paterno";
-            this.paterno.ReadOnly = true;
+            this.txtFiltroMatricula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFiltroMatricula.Location = new System.Drawing.Point(127, 59);
+            this.txtFiltroMatricula.Name = "txtFiltroMatricula";
+            this.txtFiltroMatricula.Size = new System.Drawing.Size(271, 31);
+            this.txtFiltroMatricula.TabIndex = 1;
             // 
-            // materno
+            // btnBuscar
             // 
-            this.materno.HeaderText = "Apellido Materno";
-            this.materno.MinimumWidth = 6;
-            this.materno.Name = "materno";
-            this.materno.ReadOnly = true;
-            // 
-            // telefono
-            // 
-            this.telefono.HeaderText = "Telefono";
-            this.telefono.MinimumWidth = 6;
-            this.telefono.Name = "telefono";
-            this.telefono.ReadOnly = true;
+            this.btnBuscar.BackColor = System.Drawing.Color.LightGray;
+            this.btnBuscar.Location = new System.Drawing.Point(528, 57);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(103, 33);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // frmRegistroUsuarios
             // 
@@ -562,11 +619,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).EndInit();
             this.grbUsuarios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.panelDatosAcademicos.ResumeLayout(false);
             this.panelDatosAcademicos.PerformLayout();
             this.panelDatosUsuario.ResumeLayout(false);
             this.panelDatosUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelFiltro.ResumeLayout(false);
+            this.panelFiltro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,11 +669,16 @@
         private System.Windows.Forms.TextBox txtGrado;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn matricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn paterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn materno;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.GroupBox grbFiltro;
+        private System.Windows.Forms.Panel panelFiltro;
+        private System.Windows.Forms.TextBox txtFiltroMatricula;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

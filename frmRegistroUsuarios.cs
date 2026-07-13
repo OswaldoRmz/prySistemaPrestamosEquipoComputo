@@ -118,5 +118,10 @@ namespace prySistemaPrestamosEquipoComputo
 
 
         }
+
+        private void panelDatosUsuario_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
