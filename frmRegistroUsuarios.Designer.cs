@@ -40,7 +40,7 @@
             this.lblRaya = new System.Windows.Forms.Label();
             this.pcbSesion = new System.Windows.Forms.PictureBox();
             this.grbUsuarios = new System.Windows.Forms.GroupBox();
-            this.grbFiltro = new System.Windows.Forms.GroupBox();
+            this.grbFiltroBusqueda = new System.Windows.Forms.GroupBox();
             this.panelFiltro = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtFiltroMatricula = new System.Windows.Forms.TextBox();
@@ -205,7 +205,7 @@
             // grbUsuarios
             // 
             this.grbUsuarios.BackColor = System.Drawing.Color.White;
-            this.grbUsuarios.Controls.Add(this.grbFiltro);
+            this.grbUsuarios.Controls.Add(this.grbFiltroBusqueda);
             this.grbUsuarios.Controls.Add(this.panelFiltro);
             this.grbUsuarios.Controls.Add(this.dgvUsuarios);
             this.grbUsuarios.Controls.Add(this.btnCancelar);
@@ -221,15 +221,15 @@
             this.grbUsuarios.TabStop = false;
             this.grbUsuarios.Text = "Registro de Usuarios";
             // 
-            // grbFiltro
+            // grbFiltroBusqueda
             // 
-            this.grbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
-            this.grbFiltro.Location = new System.Drawing.Point(840, 70);
-            this.grbFiltro.Name = "grbFiltro";
-            this.grbFiltro.Size = new System.Drawing.Size(677, 47);
-            this.grbFiltro.TabIndex = 5;
-            this.grbFiltro.TabStop = false;
-            this.grbFiltro.Text = "Filtro de Busqueda";
+            this.grbFiltroBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
+            this.grbFiltroBusqueda.Location = new System.Drawing.Point(840, 70);
+            this.grbFiltroBusqueda.Name = "grbFiltroBusqueda";
+            this.grbFiltroBusqueda.Size = new System.Drawing.Size(677, 47);
+            this.grbFiltroBusqueda.TabIndex = 5;
+            this.grbFiltroBusqueda.TabStop = false;
+            this.grbFiltroBusqueda.Text = "Filtro de Busqueda";
             // 
             // panelFiltro
             // 
@@ -291,7 +291,7 @@
             this.dgvUsuarios.RowTemplate.Height = 24;
             this.dgvUsuarios.Size = new System.Drawing.Size(677, 591);
             this.dgvUsuarios.TabIndex = 4;
-            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+ 
             // 
             // matricula
             // 
@@ -471,7 +471,7 @@
             this.panelDatosUsuario.Name = "panelDatosUsuario";
             this.panelDatosUsuario.Size = new System.Drawing.Size(700, 439);
             this.panelDatosUsuario.TabIndex = 0;
-            this.panelDatosUsuario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDatosUsuario_Paint);
+            
             // 
             // txtCorreo
             // 
@@ -675,7 +675,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn paterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn materno;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
-        private System.Windows.Forms.GroupBox grbFiltro;
+        private System.Windows.Forms.GroupBox grbFiltroBusqueda;
         private System.Windows.Forms.Panel panelFiltro;
         private System.Windows.Forms.TextBox txtFiltroMatricula;
         private System.Windows.Forms.Label lblFiltro;
