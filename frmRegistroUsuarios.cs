@@ -87,5 +87,29 @@ namespace prySistemaPrestamosEquipoComputo
             this.Hide();
         }
 
+        private void grbDatosAcademicos_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelFiltro_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtGrupo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelDatosAcademicos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtMatricula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

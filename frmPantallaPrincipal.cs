@@ -103,5 +103,10 @@ namespace prySistemaPrestamosEquipoComputo
             devolucion.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
+
+        private void frmPantallaPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
