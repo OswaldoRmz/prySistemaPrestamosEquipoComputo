@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentanaDevoluciones));
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -82,17 +82,17 @@
             this.pnlBusqueda.Controls.Add(this.lblEstado);
             this.pnlBusqueda.Controls.Add(this.lblMatricula);
             this.pnlBusqueda.Controls.Add(this.pnlEncabezado);
-            this.pnlBusqueda.Location = new System.Drawing.Point(460, 55);
+            this.pnlBusqueda.Location = new System.Drawing.Point(378, 42);
             this.pnlBusqueda.Margin = new System.Windows.Forms.Padding(1);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(1946, 145);
+            this.pnlBusqueda.Size = new System.Drawing.Size(1146, 159);
             this.pnlBusqueda.TabIndex = 1;
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnBuscar.Location = new System.Drawing.Point(1715, 95);
+            this.btnBuscar.Location = new System.Drawing.Point(966, 103);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(1);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(148, 47);
@@ -106,7 +106,7 @@
             this.textBox1.Location = new System.Drawing.Point(212, 50);
             this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1356, 34);
+            this.textBox1.Size = new System.Drawing.Size(708, 34);
             this.textBox1.TabIndex = 4;
             // 
             // cmbEstado
@@ -121,7 +121,7 @@
             this.cmbEstado.Location = new System.Drawing.Point(212, 106);
             this.cmbEstado.Margin = new System.Windows.Forms.Padding(1);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(1356, 36);
+            this.cmbEstado.Size = new System.Drawing.Size(708, 36);
             this.cmbEstado.TabIndex = 3;
             this.cmbEstado.Text = "Todo";
             // 
@@ -177,7 +177,7 @@
             this.lblHistorial.AutoSize = true;
             this.lblHistorial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblHistorial.ForeColor = System.Drawing.Color.Black;
-            this.lblHistorial.Location = new System.Drawing.Point(1369, 309);
+            this.lblHistorial.Location = new System.Drawing.Point(910, 260);
             this.lblHistorial.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblHistorial.Name = "lblHistorial";
             this.lblHistorial.Size = new System.Drawing.Size(93, 28);
@@ -188,17 +188,17 @@
             // 
             this.dvgDevoluciones.AllowUserToAddRows = false;
             this.dvgDevoluciones.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(223)))));
-            this.dvgDevoluciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(223)))));
+            this.dvgDevoluciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dvgDevoluciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDevoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDevoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dvgDevoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgDevoluciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colUsuario,
@@ -207,17 +207,17 @@
             this.colFechaDev,
             this.colEstado,
             this.colAccion});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgDevoluciones.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgDevoluciones.DefaultCellStyle = dataGridViewCellStyle6;
             this.dvgDevoluciones.EnableHeadersVisualStyles = false;
             this.dvgDevoluciones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(223)))));
-            this.dvgDevoluciones.Location = new System.Drawing.Point(460, 373);
+            this.dvgDevoluciones.Location = new System.Drawing.Point(378, 309);
             this.dvgDevoluciones.Margin = new System.Windows.Forms.Padding(1);
             this.dvgDevoluciones.Name = "dvgDevoluciones";
             this.dvgDevoluciones.ReadOnly = true;
@@ -225,7 +225,7 @@
             this.dvgDevoluciones.RowHeadersWidth = 72;
             this.dvgDevoluciones.RowTemplate.Height = 31;
             this.dvgDevoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgDevoluciones.Size = new System.Drawing.Size(1947, 519);
+            this.dvgDevoluciones.Size = new System.Drawing.Size(1146, 586);
             this.dvgDevoluciones.TabIndex = 3;
             // 
             // colUsuario
@@ -276,7 +276,7 @@
             this.btnVerTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerTodo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnVerTodo.ForeColor = System.Drawing.Color.White;
-            this.btnVerTodo.Location = new System.Drawing.Point(1251, 980);
+            this.btnVerTodo.Location = new System.Drawing.Point(732, 933);
             this.btnVerTodo.Margin = new System.Windows.Forms.Padding(1);
             this.btnVerTodo.Name = "btnVerTodo";
             this.btnVerTodo.Size = new System.Drawing.Size(377, 60);
@@ -408,7 +408,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(1573, 1055);
             this.Controls.Add(this.pcbSesion);
             this.Controls.Add(this.pcbUsuario);
             this.Controls.Add(this.lblRaya);

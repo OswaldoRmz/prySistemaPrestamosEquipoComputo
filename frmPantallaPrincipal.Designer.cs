@@ -206,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 750);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.pcbSesion);
             this.Controls.Add(this.pcbUsuario);
             this.Controls.Add(this.lblRaya);
