@@ -40,6 +40,11 @@
             this.lblRaya = new System.Windows.Forms.Label();
             this.pcbSesion = new System.Windows.Forms.PictureBox();
             this.grbUsuarios = new System.Windows.Forms.GroupBox();
+            this.grbFiltro = new System.Windows.Forms.GroupBox();
+            this.panelFiltro = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtFiltroMatricula = new System.Windows.Forms.TextBox();
+            this.lblFiltro = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,11 +77,6 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.grbDatosUsuario = new System.Windows.Forms.GroupBox();
-            this.grbFiltro = new System.Windows.Forms.GroupBox();
-            this.panelFiltro = new System.Windows.Forms.Panel();
-            this.lblFiltro = new System.Windows.Forms.Label();
-            this.txtFiltroMatricula = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbTituloPC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInicio)).BeginInit();
@@ -87,10 +87,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).BeginInit();
             this.grbUsuarios.SuspendLayout();
+            this.panelFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panelDatosAcademicos.SuspendLayout();
             this.panelDatosUsuario.SuspendLayout();
-            this.panelFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // pcbFondoIncio
@@ -221,11 +221,59 @@
             this.grbUsuarios.TabStop = false;
             this.grbUsuarios.Text = "Registro de Usuarios";
             // 
+            // grbFiltro
+            // 
+            this.grbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
+            this.grbFiltro.Location = new System.Drawing.Point(840, 70);
+            this.grbFiltro.Name = "grbFiltro";
+            this.grbFiltro.Size = new System.Drawing.Size(677, 47);
+            this.grbFiltro.TabIndex = 5;
+            this.grbFiltro.TabStop = false;
+            this.grbFiltro.Text = "Filtro de Busqueda";
+            // 
+            // panelFiltro
+            // 
+            this.panelFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFiltro.Controls.Add(this.btnBuscar);
+            this.panelFiltro.Controls.Add(this.txtFiltroMatricula);
+            this.panelFiltro.Controls.Add(this.lblFiltro);
+            this.panelFiltro.Location = new System.Drawing.Point(840, 70);
+            this.panelFiltro.Name = "panelFiltro";
+            this.panelFiltro.Size = new System.Drawing.Size(677, 105);
+            this.panelFiltro.TabIndex = 6;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.LightGray;
+            this.btnBuscar.Location = new System.Drawing.Point(528, 57);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(103, 33);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // txtFiltroMatricula
+            // 
+            this.txtFiltroMatricula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFiltroMatricula.Location = new System.Drawing.Point(127, 59);
+            this.txtFiltroMatricula.Name = "txtFiltroMatricula";
+            this.txtFiltroMatricula.Size = new System.Drawing.Size(271, 31);
+            this.txtFiltroMatricula.TabIndex = 1;
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(12, 61);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(93, 25);
+            this.lblFiltro.TabIndex = 0;
+            this.lblFiltro.Text = "Matricula";
+            // 
             // dgvUsuarios
             // 
             this.dgvUsuarios.AllowUserToAddRows = false;
             this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -543,54 +591,6 @@
             this.grbDatosUsuario.TabStop = false;
             this.grbDatosUsuario.Text = "Datos del Usuario";
             // 
-            // grbFiltro
-            // 
-            this.grbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
-            this.grbFiltro.Location = new System.Drawing.Point(840, 70);
-            this.grbFiltro.Name = "grbFiltro";
-            this.grbFiltro.Size = new System.Drawing.Size(677, 47);
-            this.grbFiltro.TabIndex = 5;
-            this.grbFiltro.TabStop = false;
-            this.grbFiltro.Text = "Filtro de Busqueda";
-            // 
-            // panelFiltro
-            // 
-            this.panelFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelFiltro.Controls.Add(this.btnBuscar);
-            this.panelFiltro.Controls.Add(this.txtFiltroMatricula);
-            this.panelFiltro.Controls.Add(this.lblFiltro);
-            this.panelFiltro.Location = new System.Drawing.Point(840, 70);
-            this.panelFiltro.Name = "panelFiltro";
-            this.panelFiltro.Size = new System.Drawing.Size(677, 105);
-            this.panelFiltro.TabIndex = 6;
-            // 
-            // lblFiltro
-            // 
-            this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(12, 61);
-            this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(93, 25);
-            this.lblFiltro.TabIndex = 0;
-            this.lblFiltro.Text = "Matricula";
-            // 
-            // txtFiltroMatricula
-            // 
-            this.txtFiltroMatricula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFiltroMatricula.Location = new System.Drawing.Point(127, 59);
-            this.txtFiltroMatricula.Name = "txtFiltroMatricula";
-            this.txtFiltroMatricula.Size = new System.Drawing.Size(271, 31);
-            this.txtFiltroMatricula.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.LightGray;
-            this.btnBuscar.Location = new System.Drawing.Point(528, 57);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(103, 33);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
             // frmRegistroUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -619,13 +619,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).EndInit();
             this.grbUsuarios.ResumeLayout(false);
+            this.panelFiltro.ResumeLayout(false);
+            this.panelFiltro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.panelDatosAcademicos.ResumeLayout(false);
             this.panelDatosAcademicos.PerformLayout();
             this.panelDatosUsuario.ResumeLayout(false);
             this.panelDatosUsuario.PerformLayout();
-            this.panelFiltro.ResumeLayout(false);
-            this.panelFiltro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
