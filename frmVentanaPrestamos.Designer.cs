@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentanaPrestamos));
             this.pcbSesion = new System.Windows.Forms.PictureBox();
             this.pcbUsuario = new System.Windows.Forms.PictureBox();
@@ -55,14 +56,19 @@
             this.panelDatosUsuario = new System.Windows.Forms.Panel();
             this.grbDatosAcademicos = new System.Windows.Forms.GroupBox();
             this.panelDatosAcademicos = new System.Windows.Forms.Panel();
-            this.cmbArea = new System.Windows.Forms.ComboBox();
-            this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.txtGrupo = new System.Windows.Forms.TextBox();
-            this.txtGrado = new System.Windows.Forms.TextBox();
+            this.cmbDispositivo = new System.Windows.Forms.ComboBox();
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblGrado = new System.Windows.Forms.Label();
-            this.lblArea = new System.Windows.Forms.Label();
-            this.lblTipo = new System.Windows.Forms.Label();
+            this.lblGarantia = new System.Windows.Forms.Label();
+            this.lblDispositivo = new System.Windows.Forms.Label();
+            this.dtmPrestamo = new System.Windows.Forms.DateTimePicker();
+            this.dtmDevolucion = new System.Windows.Forms.DateTimePicker();
+            this.txtGarantia = new System.Windows.Forms.TextBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInicio)).BeginInit();
@@ -74,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).BeginInit();
             this.panelDatosUsuario.SuspendLayout();
             this.panelDatosAcademicos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbSesion
@@ -86,6 +93,7 @@
             this.pcbSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbSesion.TabIndex = 21;
             this.pcbSesion.TabStop = false;
+            this.pcbSesion.Click += new System.EventHandler(this.pcbSesion_Click);
             // 
             // pcbUsuario
             // 
@@ -142,6 +150,7 @@
             this.pcbDevoluciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbDevoluciones.TabIndex = 16;
             this.pcbDevoluciones.TabStop = false;
+            this.pcbDevoluciones.Click += new System.EventHandler(this.pcbDevoluciones_Click);
             // 
             // pcbInventario
             // 
@@ -153,6 +162,7 @@
             this.pcbInventario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInventario.TabIndex = 15;
             this.pcbInventario.TabStop = false;
+            this.pcbInventario.Click += new System.EventHandler(this.pcbInventario_Click);
             // 
             // pcbReportes
             // 
@@ -303,6 +313,7 @@
             // grbDatosUsuario
             // 
             this.grbDatosUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
+            this.grbDatosUsuario.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDatosUsuario.Location = new System.Drawing.Point(0, 0);
             this.grbDatosUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbDatosUsuario.Name = "grbDatosUsuario";
@@ -315,6 +326,8 @@
             // panelDatosUsuario
             // 
             this.panelDatosUsuario.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelDatosUsuario.Controls.Add(this.linkLabel1);
+            this.panelDatosUsuario.Controls.Add(this.btnBuscar);
             this.panelDatosUsuario.Controls.Add(this.txtCorreo);
             this.panelDatosUsuario.Controls.Add(this.txtTelefono);
             this.panelDatosUsuario.Controls.Add(this.txtAMaterno);
@@ -337,6 +350,7 @@
             // grbDatosAcademicos
             // 
             this.grbDatosAcademicos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
+            this.grbDatosAcademicos.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDatosAcademicos.Location = new System.Drawing.Point(390, 540);
             this.grbDatosAcademicos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbDatosAcademicos.Name = "grbDatosAcademicos";
@@ -344,106 +358,156 @@
             this.grbDatosAcademicos.Size = new System.Drawing.Size(1349, 47);
             this.grbDatosAcademicos.TabIndex = 13;
             this.grbDatosAcademicos.TabStop = false;
-            this.grbDatosAcademicos.Text = "Datos Academicos";
+            this.grbDatosAcademicos.Text = "Datos del préstamo";
             // 
             // panelDatosAcademicos
             // 
             this.panelDatosAcademicos.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelDatosAcademicos.Controls.Add(this.cmbArea);
-            this.panelDatosAcademicos.Controls.Add(this.cmbTipo);
-            this.panelDatosAcademicos.Controls.Add(this.txtGrupo);
-            this.panelDatosAcademicos.Controls.Add(this.txtGrado);
+            this.panelDatosAcademicos.Controls.Add(this.txtGarantia);
+            this.panelDatosAcademicos.Controls.Add(this.dtmDevolucion);
+            this.panelDatosAcademicos.Controls.Add(this.dtmPrestamo);
+            this.panelDatosAcademicos.Controls.Add(this.cmbDispositivo);
             this.panelDatosAcademicos.Controls.Add(this.lblGrupo);
             this.panelDatosAcademicos.Controls.Add(this.lblGrado);
-            this.panelDatosAcademicos.Controls.Add(this.lblArea);
-            this.panelDatosAcademicos.Controls.Add(this.lblTipo);
+            this.panelDatosAcademicos.Controls.Add(this.lblGarantia);
+            this.panelDatosAcademicos.Controls.Add(this.lblDispositivo);
             this.panelDatosAcademicos.Location = new System.Drawing.Point(393, 540);
             this.panelDatosAcademicos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDatosAcademicos.Name = "panelDatosAcademicos";
             this.panelDatosAcademicos.Size = new System.Drawing.Size(1349, 242);
             this.panelDatosAcademicos.TabIndex = 14;
             // 
-            // cmbArea
+            // cmbDispositivo
             // 
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(168, 121);
-            this.cmbArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(435, 24);
-            this.cmbArea.TabIndex = 16;
-            // 
-            // cmbTipo
-            // 
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(168, 71);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(435, 24);
-            this.cmbTipo.TabIndex = 15;
-            // 
-            // txtGrupo
-            // 
-            this.txtGrupo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGrupo.Location = new System.Drawing.Point(423, 178);
-            this.txtGrupo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGrupo.Name = "txtGrupo";
-            this.txtGrupo.Size = new System.Drawing.Size(181, 22);
-            this.txtGrupo.TabIndex = 14;
-            // 
-            // txtGrado
-            // 
-            this.txtGrado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGrado.Location = new System.Drawing.Point(168, 178);
-            this.txtGrado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(173, 22);
-            this.txtGrado.TabIndex = 13;
+            this.cmbDispositivo.FormattingEnabled = true;
+            this.cmbDispositivo.Location = new System.Drawing.Point(195, 68);
+            this.cmbDispositivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbDispositivo.Name = "cmbDispositivo";
+            this.cmbDispositivo.Size = new System.Drawing.Size(435, 24);
+            this.cmbDispositivo.TabIndex = 15;
             // 
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
             this.lblGrupo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupo.Location = new System.Drawing.Point(347, 178);
+            this.lblGrupo.Location = new System.Drawing.Point(491, 176);
             this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(70, 28);
+            this.lblGrupo.Size = new System.Drawing.Size(176, 28);
             this.lblGrupo.TabIndex = 3;
-            this.lblGrupo.Text = "Grupo";
+            this.lblGrupo.Text = "Fecha devolución\r\n";
             // 
             // lblGrado
             // 
             this.lblGrado.AutoSize = true;
             this.lblGrado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrado.Location = new System.Drawing.Point(25, 182);
+            this.lblGrado.Location = new System.Drawing.Point(22, 177);
             this.lblGrado.Name = "lblGrado";
-            this.lblGrado.Size = new System.Drawing.Size(69, 28);
+            this.lblGrado.Size = new System.Drawing.Size(167, 28);
             this.lblGrado.TabIndex = 2;
-            this.lblGrado.Text = "Grado";
+            this.lblGrado.Text = " Fecha préstamo";
             // 
-            // lblArea
+            // lblGarantia
             // 
-            this.lblArea.AutoSize = true;
-            this.lblArea.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArea.Location = new System.Drawing.Point(28, 126);
-            this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(56, 28);
-            this.lblArea.TabIndex = 1;
-            this.lblArea.Text = "Area";
+            this.lblGarantia.AutoSize = true;
+            this.lblGarantia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGarantia.Location = new System.Drawing.Point(35, 126);
+            this.lblGarantia.Name = "lblGarantia";
+            this.lblGarantia.Size = new System.Drawing.Size(93, 28);
+            this.lblGarantia.TabIndex = 1;
+            this.lblGarantia.Text = "Garantia";
             // 
-            // lblTipo
+            // lblDispositivo
             // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(25, 68);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(54, 28);
-            this.lblTipo.TabIndex = 0;
-            this.lblTipo.Text = "Tipo";
+            this.lblDispositivo.AutoSize = true;
+            this.lblDispositivo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDispositivo.Location = new System.Drawing.Point(35, 68);
+            this.lblDispositivo.Name = "lblDispositivo";
+            this.lblDispositivo.Size = new System.Drawing.Size(118, 28);
+            this.lblDispositivo.TabIndex = 0;
+            this.lblDispositivo.Text = "Dispositivo";
+            // 
+            // dtmPrestamo
+            // 
+            this.dtmPrestamo.Location = new System.Drawing.Point(195, 182);
+            this.dtmPrestamo.Name = "dtmPrestamo";
+            this.dtmPrestamo.Size = new System.Drawing.Size(254, 22);
+            this.dtmPrestamo.TabIndex = 17;
+            // 
+            // dtmDevolucion
+            // 
+            this.dtmDevolucion.Location = new System.Drawing.Point(690, 182);
+            this.dtmDevolucion.Name = "dtmDevolucion";
+            this.dtmDevolucion.Size = new System.Drawing.Size(254, 22);
+            this.dtmDevolucion.TabIndex = 18;
+            // 
+            // txtGarantia
+            // 
+            this.txtGarantia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGarantia.Location = new System.Drawing.Point(195, 126);
+            this.txtGarantia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGarantia.Name = "txtGarantia";
+            this.txtGarantia.Size = new System.Drawing.Size(435, 22);
+            this.txtGarantia.TabIndex = 13;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(561, 875);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(225, 40);
+            this.btnAceptar.TabIndex = 23;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(1029, 875);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(225, 40);
+            this.btnCancelar.TabIndex = 24;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(623, 66);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(115, 40);
+            this.btnBuscar.TabIndex = 25;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(989, 405);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(325, 20);
+            this.linkLabel1.TabIndex = 26;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Da click aqui para dar alta a un nuevo usuario";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // frmVentanaPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.grbDatosAcademicos);
             this.Controls.Add(this.panelDatosAcademicos);
             this.Controls.Add(this.panelDatosUsuario);
@@ -473,6 +537,7 @@
             this.panelDatosUsuario.PerformLayout();
             this.panelDatosAcademicos.ResumeLayout(false);
             this.panelDatosAcademicos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,13 +571,18 @@
         private System.Windows.Forms.Panel panelDatosUsuario;
         private System.Windows.Forms.GroupBox grbDatosAcademicos;
         private System.Windows.Forms.Panel panelDatosAcademicos;
-        private System.Windows.Forms.ComboBox cmbArea;
-        private System.Windows.Forms.ComboBox cmbTipo;
-        private System.Windows.Forms.TextBox txtGrupo;
-        private System.Windows.Forms.TextBox txtGrado;
+        private System.Windows.Forms.ComboBox cmbDispositivo;
         private System.Windows.Forms.Label lblGrupo;
         private System.Windows.Forms.Label lblGrado;
-        private System.Windows.Forms.Label lblArea;
-        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.Label lblGarantia;
+        private System.Windows.Forms.Label lblDispositivo;
+        private System.Windows.Forms.DateTimePicker dtmDevolucion;
+        private System.Windows.Forms.DateTimePicker dtmPrestamo;
+        private System.Windows.Forms.TextBox txtGarantia;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

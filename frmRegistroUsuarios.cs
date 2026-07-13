@@ -81,7 +81,7 @@ namespace prySistemaPrestamosEquipoComputo
         // Abrir el formulario prestamo
         private void pcbPrestamos_Click(object sender, EventArgs e)
         {
-            frmRegistroUsuarios prestamo = new frmRegistroUsuarios();
+            frmVentanaPrestamos prestamo = new frmVentanaPrestamos();
             prestamo.Show();
             prestamo.WindowState = FormWindowState.Maximized;
             this.Hide();
