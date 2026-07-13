@@ -86,37 +86,6 @@ namespace prySistemaPrestamosEquipoComputo
             prestamo.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
+    
     }
 }
