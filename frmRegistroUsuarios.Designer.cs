@@ -121,6 +121,7 @@
             this.pcbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInicio.TabIndex = 9;
             this.pcbInicio.TabStop = false;
+            this.pcbInicio.Click += new System.EventHandler(this.pcbInicio_Click);
             // 
             // pcbPrestamos
             // 

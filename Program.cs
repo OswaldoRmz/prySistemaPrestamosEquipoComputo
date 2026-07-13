@@ -16,7 +16,7 @@ namespace prySistemaPrestamosEquipoComputo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmVentanaDevoluciones());
+            Application.Run(new frmLogin());
         }
     }
 }
