@@ -46,87 +46,87 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmInventarioEquipos.cs">
+    <Compile Include="Formularios de inventarios\frmInventarioEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInventarioEquipos.Designer.cs">
+    <Compile Include="Formularios de inventarios\frmInventarioEquipos.Designer.cs">
       <DependentUpon>frmInventarioEquipos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInventarioProductos.cs">
+    <Compile Include="Formularios de inventarios\frmInventarioProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInventarioProductos.Designer.cs">
+    <Compile Include="Formularios de inventarios\frmInventarioProductos.Designer.cs">
       <DependentUpon>frmInventarioProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Formularios principales\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Formularios principales\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPantallaPrincipal.cs">
+    <Compile Include="Formularios principales\frmPantallaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPantallaPrincipal.Designer.cs">
+    <Compile Include="Formularios principales\frmPantallaPrincipal.Designer.cs">
       <DependentUpon>frmPantallaPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistroProducto.cs">
+    <Compile Include="Formularios de registros\frmRegistroProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistroProducto.Designer.cs">
+    <Compile Include="Formularios de registros\frmRegistroProducto.Designer.cs">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistroUsuarios.cs">
+    <Compile Include="Formularios de registros\frmRegistroUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistroUsuarios.Designer.cs">
+    <Compile Include="Formularios de registros\frmRegistroUsuarios.Designer.cs">
       <DependentUpon>frmRegistroUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVentanaDevoluciones.cs">
+    <Compile Include="Formularios de movientos\frmVentanaDevoluciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVentanaDevoluciones.Designer.cs">
+    <Compile Include="Formularios de movientos\frmVentanaDevoluciones.Designer.cs">
       <DependentUpon>frmVentanaDevoluciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVentanaInventario.cs">
+    <Compile Include="Formularios de inventarios\frmVentanaInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVentanaInventario.Designer.cs">
+    <Compile Include="Formularios de inventarios\frmVentanaInventario.Designer.cs">
       <DependentUpon>frmVentanaInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVentanaPrestamos.cs">
+    <Compile Include="Formularios de movientos\frmVentanaPrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVentanaPrestamos.Designer.cs">
+    <Compile Include="Formularios de movientos\frmVentanaPrestamos.Designer.cs">
       <DependentUpon>frmVentanaPrestamos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmInventarioEquipos.resx">
+    <EmbeddedResource Include="Formularios de inventarios\frmInventarioEquipos.resx">
       <DependentUpon>frmInventarioEquipos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInventarioProductos.resx">
+    <EmbeddedResource Include="Formularios de inventarios\frmInventarioProductos.resx">
       <DependentUpon>frmInventarioProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Formularios principales\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPantallaPrincipal.resx">
+    <EmbeddedResource Include="Formularios principales\frmPantallaPrincipal.resx">
       <DependentUpon>frmPantallaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistroProducto.resx">
+    <EmbeddedResource Include="Formularios de registros\frmRegistroProducto.resx">
       <DependentUpon>frmRegistroProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistroUsuarios.resx">
+    <EmbeddedResource Include="Formularios de registros\frmRegistroUsuarios.resx">
       <DependentUpon>frmRegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVentanaInventario.resx">
+    <EmbeddedResource Include="Formularios de inventarios\frmVentanaInventario.resx">
       <DependentUpon>frmVentanaInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVentanaPrestamos.resx">
+    <EmbeddedResource Include="Formularios de movientos\frmVentanaPrestamos.resx">
       <DependentUpon>frmVentanaPrestamos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVentanaDevoluciones.resx">
+    <EmbeddedResource Include="Formularios de movientos\frmVentanaDevoluciones.resx">
       <DependentUpon>frmVentanaDevoluciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
