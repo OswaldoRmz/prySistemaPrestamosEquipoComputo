@@ -223,6 +223,7 @@
             this.Name = "frmPantallaPrincipal";
             this.Text = "Menú";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPantallaPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).EndInit();
             this.grbInicio.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbBienvenida)).EndInit();
