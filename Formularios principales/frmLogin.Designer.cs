@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblLinkOlvid = new System.Windows.Forms.LinkLabel();
+            this.btnAcceso = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtClaveAcceso = new System.Windows.Forms.TextBox();
@@ -43,8 +43,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnAcceso = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -67,8 +67,8 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnAcceso);
-            this.panel1.Controls.Add(this.lblLinkOlvid);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtClaveAcceso);
@@ -83,15 +83,17 @@
             this.panel1.Size = new System.Drawing.Size(321, 402);
             this.panel1.TabIndex = 1;
             // 
-            // lblLinkOlvid
+            // btnAcceso
             // 
-            this.lblLinkOlvid.AutoSize = true;
-            this.lblLinkOlvid.Location = new System.Drawing.Point(78, 353);
-            this.lblLinkOlvid.Name = "lblLinkOlvid";
-            this.lblLinkOlvid.Size = new System.Drawing.Size(161, 16);
-            this.lblLinkOlvid.TabIndex = 9;
-            this.lblLinkOlvid.TabStop = true;
-            this.lblLinkOlvid.Text = "¿Olvidaste tu contraseña?";
+            this.btnAcceso.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcceso.ForeColor = System.Drawing.Color.Black;
+            this.btnAcceso.Location = new System.Drawing.Point(68, 309);
+            this.btnAcceso.Name = "btnAcceso";
+            this.btnAcceso.Size = new System.Drawing.Size(187, 23);
+            this.btnAcceso.TabIndex = 10;
+            this.btnAcceso.Text = "Acceder";
+            this.btnAcceso.UseVisualStyleBackColor = true;
+            this.btnAcceso.Click += new System.EventHandler(this.btnAcceso_Click);
             // 
             // txtPassword
             // 
@@ -189,21 +191,20 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // btnAcceso
-            // 
-            this.btnAcceso.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcceso.ForeColor = System.Drawing.Color.Black;
-            this.btnAcceso.Location = new System.Drawing.Point(68, 309);
-            this.btnAcceso.Name = "btnAcceso";
-            this.btnAcceso.Size = new System.Drawing.Size(187, 23);
-            this.btnAcceso.TabIndex = 10;
-            this.btnAcceso.Text = "Acceder";
-            this.btnAcceso.UseVisualStyleBackColor = true;
-            this.btnAcceso.Click += new System.EventHandler(this.btnAcceso_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(44, 354);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(228, 17);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Verifica tus datos antes de ingresar.";
             // 
             // frmLogin
             // 
@@ -229,7 +230,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel lblLinkOlvid;
         //private System.Windows.Forms.Button btnAcceso;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label4;
@@ -243,5 +243,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnAcceso;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label5;
     }
 }
