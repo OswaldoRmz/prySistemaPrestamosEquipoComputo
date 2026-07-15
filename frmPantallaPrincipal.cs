@@ -102,6 +102,8 @@ namespace prySistemaPrestamosEquipoComputo
             devolucion.Show();
             devolucion.WindowState = FormWindowState.Maximized;
             this.Hide();
-        }  
+        }
+
+        
     }
 }

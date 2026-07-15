@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmInventarioEquipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventarioEquipos.Designer.cs">
+      <DependentUpon>frmInventarioEquipos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInventarioProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmInventarioEquipos.resx">
+      <DependentUpon>frmInventarioEquipos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInventarioProductos.resx">
       <DependentUpon>frmInventarioProductos.cs</DependentUpon>
     </EmbeddedResource>
