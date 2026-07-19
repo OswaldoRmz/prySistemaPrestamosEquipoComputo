@@ -62,5 +62,6 @@ namespace prySistemaPrestamosEquipoComputo
             PictureBox pb = (PictureBox)sender;
             pb.BackColor = Color.Transparent;
         }
+
     }
 }

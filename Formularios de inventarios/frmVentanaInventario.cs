@@ -125,6 +125,14 @@ namespace prySistemaPrestamosEquipoComputo
         {
 
         }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            frmRegistroProducto nuevoProducto = new frmRegistroProducto();
+            nuevoProducto.Show();
+            nuevoProducto.WindowState = FormWindowState.Maximized;
+            this.Hide();
+        }
     }
     
 }

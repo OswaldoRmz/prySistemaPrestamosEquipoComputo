@@ -52,11 +52,6 @@
             this.txtFiltroMatricula = new System.Windows.Forms.TextBox();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.panelDatosAcademicos = new System.Windows.Forms.Panel();
@@ -217,7 +212,7 @@
             this.lblRaya.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRaya.Location = new System.Drawing.Point(-3, 807);
             this.lblRaya.Name = "lblRaya";
-            this.lblRaya.Size = new System.Drawing.Size(255, 20);
+            this.lblRaya.Size = new System.Drawing.Size(340, 25);
             this.lblRaya.TabIndex = 15;
             this.lblRaya.Text = "-----------------------------------------";
             // 
@@ -348,15 +343,16 @@
             this.txtFiltroMatricula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFiltroMatricula.Location = new System.Drawing.Point(127, 59);
             this.txtFiltroMatricula.Name = "txtFiltroMatricula";
-            this.txtFiltroMatricula.Size = new System.Drawing.Size(271, 27);
+            this.txtFiltroMatricula.Size = new System.Drawing.Size(271, 31);
             this.txtFiltroMatricula.TabIndex = 1;
+            this.txtFiltroMatricula.TextChanged += new System.EventHandler(this.txtFiltroMatricula_TextChanged);
             // 
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Location = new System.Drawing.Point(12, 61);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(75, 20);
+            this.lblFiltro.Size = new System.Drawing.Size(93, 25);
             this.lblFiltro.TabIndex = 0;
             this.lblFiltro.Text = "Matricula";
             // 
@@ -367,12 +363,6 @@
             this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.matricula,
-            this.nombre,
-            this.paterno,
-            this.materno,
-            this.telefono});
             this.dgvUsuarios.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvUsuarios.Location = new System.Drawing.Point(835, 206);
             this.dgvUsuarios.Name = "dgvUsuarios";
@@ -382,41 +372,7 @@
             this.dgvUsuarios.RowTemplate.Height = 24;
             this.dgvUsuarios.Size = new System.Drawing.Size(677, 684);
             this.dgvUsuarios.TabIndex = 4;
-            // 
-            // matricula
-            // 
-            this.matricula.HeaderText = "Matricula";
-            this.matricula.MinimumWidth = 6;
-            this.matricula.Name = "matricula";
-            this.matricula.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // paterno
-            // 
-            this.paterno.HeaderText = "Apellido Paterno";
-            this.paterno.MinimumWidth = 6;
-            this.paterno.Name = "paterno";
-            this.paterno.ReadOnly = true;
-            // 
-            // materno
-            // 
-            this.materno.HeaderText = "Apellido Materno";
-            this.materno.MinimumWidth = 6;
-            this.materno.Name = "materno";
-            this.materno.ReadOnly = true;
-            // 
-            // telefono
-            // 
-            this.telefono.HeaderText = "Telefono";
-            this.telefono.MinimumWidth = 6;
-            this.telefono.Name = "telefono";
-            this.telefono.ReadOnly = true;
+            this.dgvUsuarios.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellEnter);
             // 
             // btnCancelar
             // 
@@ -477,10 +433,10 @@
             // 
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Items.AddRange(new object[] {
-            "TECNOLOGIAS DE LA INFORMACION",
-            "MECATRONICA",
-            "ALIMENTOS",
-            "CONSTRUCCION",
+            "Tecnologías de la Información",
+            "Mecatronica",
+            "Alimentos",
+            "Construccion",
             "CONTADURIA",
             "MERCADOTECNIA",
             "ADMINISTRACION",
@@ -491,7 +447,7 @@
             this.cmbArea.Location = new System.Drawing.Point(161, 103);
             this.cmbArea.Margin = new System.Windows.Forms.Padding(4);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(435, 27);
+            this.cmbArea.Size = new System.Drawing.Size(435, 33);
             this.cmbArea.TabIndex = 16;
             // 
             // cmbTipo
@@ -505,7 +461,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(161, 59);
             this.cmbTipo.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(435, 27);
+            this.cmbTipo.Size = new System.Drawing.Size(435, 33);
             this.cmbTipo.TabIndex = 15;
             // 
             // txtGrupo
@@ -514,7 +470,7 @@
             this.txtGrupo.Location = new System.Drawing.Point(432, 149);
             this.txtGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrupo.Name = "txtGrupo";
-            this.txtGrupo.Size = new System.Drawing.Size(164, 27);
+            this.txtGrupo.Size = new System.Drawing.Size(164, 31);
             this.txtGrupo.TabIndex = 14;
             // 
             // txtGrado
@@ -523,7 +479,7 @@
             this.txtGrado.Location = new System.Drawing.Point(161, 149);
             this.txtGrado.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(159, 27);
+            this.txtGrado.Size = new System.Drawing.Size(159, 31);
             this.txtGrado.TabIndex = 13;
             // 
             // lblGrupo
@@ -533,7 +489,7 @@
             this.lblGrupo.Location = new System.Drawing.Point(340, 155);
             this.lblGrupo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(57, 21);
+            this.lblGrupo.Size = new System.Drawing.Size(70, 28);
             this.lblGrupo.TabIndex = 3;
             this.lblGrupo.Text = "Grupo";
             // 
@@ -544,7 +500,7 @@
             this.lblGrado.Location = new System.Drawing.Point(44, 155);
             this.lblGrado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGrado.Name = "lblGrado";
-            this.lblGrado.Size = new System.Drawing.Size(56, 21);
+            this.lblGrado.Size = new System.Drawing.Size(69, 28);
             this.lblGrado.TabIndex = 2;
             this.lblGrado.Text = "Grado";
             // 
@@ -555,7 +511,7 @@
             this.lblArea.Location = new System.Drawing.Point(44, 109);
             this.lblArea.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(45, 21);
+            this.lblArea.Size = new System.Drawing.Size(56, 28);
             this.lblArea.TabIndex = 1;
             this.lblArea.Text = "Area";
             // 
@@ -566,7 +522,7 @@
             this.lblTipo.Location = new System.Drawing.Point(45, 59);
             this.lblTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(44, 21);
+            this.lblTipo.Size = new System.Drawing.Size(54, 28);
             this.lblTipo.TabIndex = 0;
             this.lblTipo.Text = "Tipo";
             // 
@@ -599,7 +555,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(161, 323);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(435, 27);
+            this.txtCorreo.Size = new System.Drawing.Size(435, 31);
             this.txtCorreo.TabIndex = 12;
             // 
             // txtTelefono
@@ -608,7 +564,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(161, 269);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(435, 27);
+            this.txtTelefono.Size = new System.Drawing.Size(435, 31);
             this.txtTelefono.TabIndex = 11;
             // 
             // txtAMaterno
@@ -617,7 +573,7 @@
             this.txtAMaterno.Location = new System.Drawing.Point(161, 214);
             this.txtAMaterno.Margin = new System.Windows.Forms.Padding(4);
             this.txtAMaterno.Name = "txtAMaterno";
-            this.txtAMaterno.Size = new System.Drawing.Size(435, 27);
+            this.txtAMaterno.Size = new System.Drawing.Size(435, 31);
             this.txtAMaterno.TabIndex = 10;
             // 
             // txtAPaterno
@@ -626,7 +582,7 @@
             this.txtAPaterno.Location = new System.Drawing.Point(161, 168);
             this.txtAPaterno.Margin = new System.Windows.Forms.Padding(4);
             this.txtAPaterno.Name = "txtAPaterno";
-            this.txtAPaterno.Size = new System.Drawing.Size(435, 27);
+            this.txtAPaterno.Size = new System.Drawing.Size(435, 31);
             this.txtAPaterno.TabIndex = 9;
             // 
             // txtNombre
@@ -635,7 +591,7 @@
             this.txtNombre.Location = new System.Drawing.Point(161, 111);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(435, 27);
+            this.txtNombre.Size = new System.Drawing.Size(435, 31);
             this.txtNombre.TabIndex = 8;
             // 
             // txtMatricula
@@ -644,7 +600,7 @@
             this.txtMatricula.Location = new System.Drawing.Point(161, 65);
             this.txtMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(435, 27);
+            this.txtMatricula.Size = new System.Drawing.Size(435, 31);
             this.txtMatricula.TabIndex = 7;
             // 
             // lblCorreo
@@ -654,7 +610,7 @@
             this.lblCorreo.Location = new System.Drawing.Point(44, 329);
             this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(61, 21);
+            this.lblCorreo.Size = new System.Drawing.Size(75, 28);
             this.lblCorreo.TabIndex = 6;
             this.lblCorreo.Text = "Correo";
             // 
@@ -665,7 +621,7 @@
             this.lblTelefono.Location = new System.Drawing.Point(44, 275);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(77, 21);
+            this.lblTelefono.Size = new System.Drawing.Size(94, 28);
             this.lblTelefono.TabIndex = 5;
             this.lblTelefono.Text = "Telefono";
             // 
@@ -676,7 +632,7 @@
             this.lblAMaterno.Location = new System.Drawing.Point(44, 214);
             this.lblAMaterno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAMaterno.Name = "lblAMaterno";
-            this.lblAMaterno.Size = new System.Drawing.Size(75, 42);
+            this.lblAMaterno.Size = new System.Drawing.Size(93, 56);
             this.lblAMaterno.TabIndex = 4;
             this.lblAMaterno.Text = "Apellido\r\nMaterno";
             // 
@@ -687,7 +643,7 @@
             this.lblAPaterno.Location = new System.Drawing.Point(44, 153);
             this.lblAPaterno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAPaterno.Name = "lblAPaterno";
-            this.lblAPaterno.Size = new System.Drawing.Size(75, 42);
+            this.lblAPaterno.Size = new System.Drawing.Size(91, 56);
             this.lblAPaterno.TabIndex = 3;
             this.lblAPaterno.Text = "Apellido\r\nPaterno";
             // 
@@ -698,7 +654,7 @@
             this.lblNombre.Location = new System.Drawing.Point(44, 111);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(73, 21);
+            this.lblNombre.Size = new System.Drawing.Size(89, 28);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
@@ -709,7 +665,7 @@
             this.lblMatricula.Location = new System.Drawing.Point(44, 71);
             this.lblMatricula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMatricula.Name = "lblMatricula";
-            this.lblMatricula.Size = new System.Drawing.Size(83, 21);
+            this.lblMatricula.Size = new System.Drawing.Size(103, 28);
             this.lblMatricula.TabIndex = 1;
             this.lblMatricula.Text = "Matricula";
             // 
@@ -747,7 +703,7 @@
             this.txtNumcasa.Location = new System.Drawing.Point(437, 153);
             this.txtNumcasa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumcasa.Name = "txtNumcasa";
-            this.txtNumcasa.Size = new System.Drawing.Size(159, 27);
+            this.txtNumcasa.Size = new System.Drawing.Size(159, 31);
             this.txtNumcasa.TabIndex = 17;
             // 
             // lblNumCasa
@@ -757,7 +713,7 @@
             this.lblNumCasa.Location = new System.Drawing.Point(340, 159);
             this.lblNumCasa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumCasa.Name = "lblNumCasa";
-            this.lblNumCasa.Size = new System.Drawing.Size(87, 21);
+            this.lblNumCasa.Size = new System.Drawing.Size(106, 28);
             this.lblNumCasa.TabIndex = 16;
             this.lblNumCasa.Text = "Num.Casa";
             // 
@@ -767,7 +723,7 @@
             this.txtCP.Location = new System.Drawing.Point(161, 153);
             this.txtCP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCP.Name = "txtCP";
-            this.txtCP.Size = new System.Drawing.Size(159, 27);
+            this.txtCP.Size = new System.Drawing.Size(159, 31);
             this.txtCP.TabIndex = 15;
             // 
             // txtCalle
@@ -776,7 +732,7 @@
             this.txtCalle.Location = new System.Drawing.Point(161, 103);
             this.txtCalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(435, 27);
+            this.txtCalle.Size = new System.Drawing.Size(435, 31);
             this.txtCalle.TabIndex = 14;
             // 
             // txtColonia
@@ -785,7 +741,7 @@
             this.txtColonia.Location = new System.Drawing.Point(161, 56);
             this.txtColonia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtColonia.Name = "txtColonia";
-            this.txtColonia.Size = new System.Drawing.Size(435, 27);
+            this.txtColonia.Size = new System.Drawing.Size(435, 31);
             this.txtColonia.TabIndex = 13;
             // 
             // lblCP
@@ -795,7 +751,7 @@
             this.lblCP.Location = new System.Drawing.Point(44, 138);
             this.lblCP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCP.Name = "lblCP";
-            this.lblCP.Size = new System.Drawing.Size(65, 42);
+            this.lblCP.Size = new System.Drawing.Size(78, 56);
             this.lblCP.TabIndex = 9;
             this.lblCP.Text = "Codigo\r\nPostal";
             // 
@@ -806,7 +762,7 @@
             this.lblCalle.Location = new System.Drawing.Point(44, 103);
             this.lblCalle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCalle.Name = "lblCalle";
-            this.lblCalle.Size = new System.Drawing.Size(48, 21);
+            this.lblCalle.Size = new System.Drawing.Size(58, 28);
             this.lblCalle.TabIndex = 8;
             this.lblCalle.Text = "Calle";
             // 
@@ -817,7 +773,7 @@
             this.lnlColonia.Location = new System.Drawing.Point(44, 62);
             this.lnlColonia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnlColonia.Name = "lnlColonia";
-            this.lnlColonia.Size = new System.Drawing.Size(69, 21);
+            this.lnlColonia.Size = new System.Drawing.Size(83, 28);
             this.lnlColonia.TabIndex = 7;
             this.lnlColonia.Text = "Colonia";
             // 
@@ -845,6 +801,7 @@
             this.Name = "frmRegistroUsuarios";
             this.Text = "frmRegistroUsuarios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmRegistroUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbTituloPC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInicio)).EndInit();
@@ -908,11 +865,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matricula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paterno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.GroupBox grbFiltroBusqueda;
         private System.Windows.Forms.Panel panelFiltro;
         private System.Windows.Forms.TextBox txtFiltroMatricula;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using prySistemaPrestamosEquipoComputo.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +17,7 @@ namespace prySistemaPrestamosEquipoComputo
         //variables para editar
         bool esEdicion = false;
         string matriculaSeleccionada = "";
-
+        string tablaOrigenSeleccionada = "";
         public frmRegistroUsuarios()
         {
             InitializeComponent();
@@ -67,6 +69,74 @@ namespace prySistemaPrestamosEquipoComputo
 
             //cambia el color de botones
             ActualizarColorBoton();
+        }
+
+        //Metodo para cargar los datos en dtg
+        private clsConexion coneccion;
+        // Guarda el ID del producto seleccionado
+        private int productoIdSeleccionado = 0;
+
+        private void cargaDatos()
+        {
+            coneccion = new clsConexion();
+            MySqlConnection con = coneccion.getConection();
+
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                {
+                    con.Open();
+                }
+
+                string consulta = @"
+            SELECT *
+            FROM vw_usuarios_catalogo
+            ORDER BY Matricula";
+
+                MySqlDataAdapter adaptador =
+                    new MySqlDataAdapter(consulta, con);
+
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+
+                dgvUsuarios.DataSource = tabla;
+
+                // Configuración del DataGridView
+                dgvUsuarios.SelectionMode =
+                    DataGridViewSelectionMode.FullRowSelect;
+
+                dgvUsuarios.MultiSelect = false;
+                dgvUsuarios.ReadOnly = true;
+                dgvUsuarios.AllowUserToAddRows = false;
+
+                // Ocultamos datos que no necesitas mostrar,
+                // pero que servirán para llenar los campos
+                dgvUsuarios.Columns["Correo"].Visible = false;
+                dgvUsuarios.Columns["Tipo"].Visible = false;
+                dgvUsuarios.Columns["Area"].Visible = false;
+                dgvUsuarios.Columns["Grado"].Visible = false;
+                dgvUsuarios.Columns["Grupo"].Visible = false;
+                dgvUsuarios.Columns["NumCasa"].Visible = false;
+                dgvUsuarios.Columns["Colonia"].Visible = false;
+                dgvUsuarios.Columns["Calle"].Visible = false;
+                dgvUsuarios.Columns["CP"].Visible = false;
+                dgvUsuarios.Columns["TablaOrigen"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar los usuarios:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
         }
 
         private bool ValidarCampos()
@@ -195,7 +265,7 @@ namespace prySistemaPrestamosEquipoComputo
                 txtGrado.BackColor = Color.White;
                 txtGrupo.BackColor = Color.White;
             }
-            else if(cmbTipo.Text =="Administrador")
+            else if (cmbTipo.Text == "Administrador")
             {
                 //si es administrador
                 txtGrado.Enabled = false;
@@ -218,21 +288,29 @@ namespace prySistemaPrestamosEquipoComputo
                 txtGrupo.BackColor = SystemColors.Control;
             }
 
-                //cambia el color a los botones
-                ActualizarColorBoton();
+            //cambia el color a los botones
+            ActualizarColorBoton();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //validar campos
+            // Validamos todos los campos del formulario
             if (ValidarCampos() == false)
             {
                 return;
             }
-            MessageBox.Show("Usuario agregado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            if (cmbTipo.Text == "Alumno")
+            {
+                AgregarAlumno();
+            }
+            else
+            {
+                AgregarTrabajador();
+            }
+            
             LimpiarCajas();
-            CargarUsuarios();
+            cargaDatos();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -248,14 +326,21 @@ namespace prySistemaPrestamosEquipoComputo
             {
                 return;
             }
-            MessageBox.Show("Usuario editado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string tablaOrigen = tablaOrigenSeleccionada.Trim().ToLower();
+            if (tablaOrigen == "alumno")
+            {
+                EditarAlumno();
+            }
+            else if (tablaOrigen == "trabajador")
+            {
+                EditarTrabajador();
+            }            
 
             LimpiarCajas();
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
             txtMatricula.Enabled = true;
 
-            CargarUsuarios();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -278,14 +363,12 @@ namespace prySistemaPrestamosEquipoComputo
             //si
             if (respuesta == DialogResult.Yes)
             {
-                MessageBox.Show("Usuario eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                EliminarUsuario();
                 LimpiarCajas();
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
                 txtMatricula.Enabled = true;
                 matriculaSeleccionada = "";
-                CargarUsuarios();
             }
         }
 
@@ -313,45 +396,6 @@ namespace prySistemaPrestamosEquipoComputo
                 return;
             }
             MessageBox.Show("Buscando matrícula: " + txtFiltroMatricula.Text, "Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        //se usa cuando se selecciona algo en la tabla
-        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //verificamos que haya seleccionado algo
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvUsuarios.Rows[e.RowIndex];
-
-                //rellenamos con lo de la fila
-                matriculaSeleccionada = fila.Cells["Matricula"].Value.ToString();
-                txtMatricula.Text = matriculaSeleccionada;
-                txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
-                txtAPaterno.Text = fila.Cells["ApellidoPaterno"].Value.ToString();
-                txtAMaterno.Text = fila.Cells["ApellidoMaterno"].Value.ToString();
-                txtTelefono.Text = fila.Cells["Telefono"].Value.ToString();
-                txtCorreo.Text = fila.Cells["Correo"].Value.ToString();
-                cmbTipo.Text = fila.Cells["Tipo"].Value.ToString();
-                cmbArea.Text = fila.Cells["Area"].Value.ToString();
-                txtGrado.Text = fila.Cells["Grado"].Value.ToString();
-                txtGrupo.Text = fila.Cells["Grupo"].Value.ToString();
-                txtNumcasa.Text = fila.Cells["NumCasa"].Value.ToString();
-                txtColonia.Text = fila.Cells["Colonia"].Value.ToString();
-                txtCalle.Text = fila.Cells["Calle"].Value.ToString();
-                txtCP.Text = fila.Cells["CP"].Value.ToString();
-
-                btnEditar.Enabled = true;
-                btnEliminar.Enabled = true;
-                txtMatricula.Enabled = false;
-                esEdicion = true;
-
-                cmbTipo_SelectedIndexChanged(sender, e);
-            }
-        }
-
-        private void CargarUsuarios()
-        {
-            //aquí iría el código para cargar desde la base de datos
         }
 
         public void LimpiarCajas()
@@ -507,6 +551,377 @@ namespace prySistemaPrestamosEquipoComputo
             pcbSesion.Parent = pcbFondoIncio;
             pcbUsuario.Parent = pcbFondoIncio;
             lblRaya.Parent = pcbFondoIncio;
+        }
+        //Obtener id de carreras
+        private int ObtenerIdCarrera(MySqlConnection con,string nombreCarrera)
+        {
+            string consulta = @"
+        SELECT id_carrera
+        FROM carrera
+        WHERE nombre = @nombre
+        LIMIT 1";
+
+            MySqlCommand comando = new MySqlCommand(consulta, con);
+
+            comando.Parameters.AddWithValue(
+                "@nombre",
+                nombreCarrera.Trim());
+
+            object resultado = comando.ExecuteScalar();
+
+            if (resultado == null || resultado == DBNull.Value)
+            {
+                return 0;
+            }
+
+            return Convert.ToInt32(resultado);
+        }
+        //Obtener id de area
+        private int ObtenerIdArea(MySqlConnection con, string nombreArea)
+        {
+            string consulta = @"
+        SELECT id_area
+        FROM area
+        WHERE nombre = @nombre
+        LIMIT 1";
+
+            MySqlCommand comando =
+                new MySqlCommand(consulta, con);
+
+            comando.Parameters.AddWithValue(
+                "@nombre",
+                nombreArea.Trim());
+
+            object resultado = comando.ExecuteScalar();
+
+            if (resultado == null || resultado == DBNull.Value)
+            {
+                return 0;
+            }
+
+            return Convert.ToInt32(resultado);
+        }
+        //obtener id de rol
+        private int ObtenerIdRol(MySqlConnection con,string nombreRol)
+        {
+            string consulta = @"
+        SELECT id_rol
+        FROM rol
+        WHERE tipo_rol = @tipoRol
+        LIMIT 1";
+
+            MySqlCommand comando =
+                new MySqlCommand(consulta, con);
+
+            comando.Parameters.AddWithValue(
+                "@tipoRol",
+                nombreRol.Trim());
+
+            object resultado = comando.ExecuteScalar();
+
+            if (resultado == null || resultado == DBNull.Value)
+            {
+                return 0;
+            }
+
+            return Convert.ToInt32(resultado);
+        }
+        private void frmRegistroUsuarios_Load(object sender, EventArgs e)
+        {
+            cargaDatos();
+        }
+        //Metodo para agregar un alumno
+        private void AgregarAlumno()
+        {
+            coneccion = new clsConexion();
+            MySqlConnection con = coneccion.getConection();
+            int idCarrera = ObtenerIdCarrera(con,cmbArea.Text);
+
+            string consulta = @"INSERT INTO alumno(matricula,nombres,apellido_paterno, apellido_materno,telefono,correo,codigo_postal, calle, colonia, numero_casa, grado,grupo,id_carrera)
+            VALUES (@matricula,@nombres,@apellidoPaterno,@apellidoMaterno,@telefono,@correo,@codigoPostal,@calle,@colonia,@numeroCasa,@grado,@grupo,@idCarrera)";
+
+            MySqlCommand comando = new MySqlCommand(consulta, con);
+
+            comando.Parameters.AddWithValue("@matricula", txtMatricula.Text.Trim());
+            comando.Parameters.AddWithValue("@nombres", txtNombre.Text.Trim());
+            comando.Parameters.AddWithValue("@apellidoPaterno", txtAPaterno.Text.Trim());
+            comando.Parameters.AddWithValue("@apellidoMaterno", txtAMaterno.Text.Trim());
+            comando.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
+            comando.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
+            comando.Parameters.AddWithValue("@codigoPostal", txtCP.Text.Trim());
+            comando.Parameters.AddWithValue("@calle", txtCalle.Text.Trim());
+            comando.Parameters.AddWithValue("@colonia", txtColonia.Text.Trim());
+            comando.Parameters.AddWithValue("@numeroCasa", txtNumcasa.Text.Trim());
+            comando.Parameters.AddWithValue("@grado", txtGrado.Text.Trim());
+            comando.Parameters.AddWithValue("@grupo", txtGrupo.Text.Trim());
+            comando.Parameters.AddWithValue("@idcarrera", idCarrera);
+
+            int filasAfectads = comando.ExecuteNonQuery();
+            con.Close();
+
+            if (filasAfectads > 0)
+            {
+                MessageBox.Show("Alumno agregado correctamente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpiarCajas();
+                cargaDatos();
+            }
+            else
+            {
+                MessageBox.Show("Algo Fallo");
+            }
+        }
+        //Metodo para agregar un trabajador
+        private void AgregarTrabajador()
+        {
+            coneccion = new clsConexion();
+            MySqlConnection con = coneccion.getConection();
+            int idarea = ObtenerIdArea(con, cmbArea.Text);
+            int idrol = ObtenerIdRol(con, cmbTipo.Text);
+            string consulta = @"INSERT INTO trabajador(num_trabajador,nombres,apellido_paterno,apellido_materno,telefono,correo,codigo_postal,calle,colonia,numero_casa,id_area,id_rol)
+            VALUES (@numeroTrabajador,@nombres,@apellidoPaterno,@apellidoMaterno,@telefono,@correo,@codigoPostal,@calle,@colonia,@numeroCasa,@idarea,@idrol)";
+
+            MySqlCommand command = new MySqlCommand(consulta, con);
+
+            command.Parameters.AddWithValue("@numeroTrabajador", txtMatricula.Text.Trim());
+            command.Parameters.AddWithValue("@nombres", txtNombre.Text.Trim());
+            command.Parameters.AddWithValue("@apellidoPaterno", txtAPaterno.Text.Trim());
+            command.Parameters.AddWithValue("@apellidoMaterno", txtAMaterno.Text.Trim());
+            command.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
+            command.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
+            command.Parameters.AddWithValue("@codigoPostal", txtCP.Text.Trim());
+            command.Parameters.AddWithValue("@calle", txtCalle.Text.Trim());
+            command.Parameters.AddWithValue("@colonia", txtColonia.Text.Trim());
+            command.Parameters.AddWithValue("@numeroCasa", txtNumcasa.Text.Trim());
+            command.Parameters.AddWithValue("@idarea", idarea);
+            command.Parameters.AddWithValue("@idrol", idrol);
+
+            int filasAfectadas = command.ExecuteNonQuery();
+            con.Close();
+
+            if (filasAfectadas > 0)
+            {
+                MessageBox.Show("Usuario agregado correctamente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpiarCajas();
+                cargaDatos();
+            }
+            else
+            {
+                MessageBox.Show("Algo fallo");
+            }
+        }
+
+        //Evento al seleccionar una entidad desde el data griev view
+        private void dgvUsuarios_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Evita seleccionar los encabezados
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            // Obtenemos la fila seleccionada directamente
+            // desde el DataTable
+            DataRowView fila = dgvUsuarios.Rows[e.RowIndex].DataBoundItem as DataRowView;
+
+            if (fila == null)
+            {
+                return;
+            }
+
+            // Guardamos la llave primaria seleccionada
+            matriculaSeleccionada = fila["Matricula"]?.ToString() ?? "";
+            // Guardamos la tabla de origen
+            tablaOrigenSeleccionada = fila["TablaOrigen"]?.ToString() ?? "";
+            // Llenamos los campos personales
+            txtMatricula.Text = fila["Matricula"]?.ToString() ?? "";
+            txtNombre.Text = fila["Nombre"]?.ToString() ?? "";
+            txtAPaterno.Text = fila["ApellidoPaterno"]?.ToString() ?? "";
+            txtAMaterno.Text = fila["ApellidoMaterno"]?.ToString() ?? "";
+            txtTelefono.Text = fila["Telefono"]?.ToString() ?? "";
+            txtCorreo.Text = fila["Correo"]?.ToString() ?? "";
+            // Primero asignamos el tipo.          
+            cmbTipo.Text = fila["Tipo"]?.ToString() ?? "";
+            // Después seleccionamos la carrera o área
+            cmbArea.Text = fila["Area"]?.ToString() ?? "";
+            txtGrado.Text = fila["Grado"]?.ToString() ?? "";
+            txtGrupo.Text = fila["Grupo"]?.ToString() ?? "";
+            txtNumcasa.Text = fila["NumCasa"]?.ToString() ?? "";
+            txtColonia.Text = fila["Colonia"]?.ToString() ?? "";
+            txtCalle.Text = fila["Calle"]?.ToString() ?? "";
+            txtCP.Text = fila["CP"]?.ToString() ?? "";
+
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+
+            esEdicion = true;
+
+            ActualizarColorBoton();
+        }
+
+        //Metodo para eliminar usuarios
+        private void EliminarUsuario()
+        {
+            try
+            {
+                coneccion = new clsConexion();
+                MySqlConnection con = coneccion.getConection();
+                string consulta = "";
+                string tablaOrigen = tablaOrigenSeleccionada.Trim().ToLower();
+
+                if (tablaOrigen == "alumno")
+                {
+                    consulta = "DELETE FROM alumno WHERE matricula = @identi";
+                }
+                else if (tablaOrigen == "trabajador")
+                {
+                    consulta = "DELETE FROM trabajador WHERE num_trabajador = @identi";
+                }
+
+                MySqlCommand command = new MySqlCommand(consulta, con);
+                command.Parameters.AddWithValue("@identi", matriculaSeleccionada);
+
+                int filasAfectadas = command.ExecuteNonQuery();
+                con.Close();
+
+                if (filasAfectadas > 0)
+                {
+                    MessageBox.Show("Registro eliminado exitosamente...");
+                    cargaDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Fallo al eliminar el registro...");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error al eliminar el registro : " + ex.Message);
+            }
+
+        }
+
+        //Metodo para editar un registro
+        private void EditarAlumno()
+        {
+            coneccion = new clsConexion();
+            MySqlConnection con = coneccion.getConection();
+
+            try
+            {
+                int idcarrera = ObtenerIdCarrera(con,cmbArea.Text);
+                string consulta = @"UPDATE alumno SET nombres = @nombres,apellido_paterno = @apellidoPaterno,apellido_materno = @apellidoMaterno,telefono = @telefono,correo = @correo,codigo_postal = @codigoPostal,calle = @calle,colonia = @colonia,numero_casa = @numeroCasa,grado = @grado,grupo = @grupo,id_carrera = @idcarrera
+                    WHERE matricula = @matricula";
+
+                MySqlCommand command = new MySqlCommand(consulta, con);
+
+                command.Parameters.AddWithValue("@matricula", txtMatricula.Text.Trim());
+                command.Parameters.AddWithValue("@nombres", txtNombre.Text.Trim());
+                command.Parameters.AddWithValue("@apellidoPaterno", txtAPaterno.Text.Trim());
+                command.Parameters.AddWithValue("@apellidoMaterno", txtAMaterno.Text.Trim());
+                command.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
+                command.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
+                command.Parameters.AddWithValue("@codigoPostal", txtCP.Text.Trim());
+                command.Parameters.AddWithValue("@calle", txtCalle.Text.Trim());
+                command.Parameters.AddWithValue("@colonia", txtColonia.Text.Trim());
+                command.Parameters.AddWithValue("@numeroCasa", txtNumcasa.Text.Trim());
+                command.Parameters.AddWithValue("@grado", txtGrado.Text.Trim());
+                command.Parameters.AddWithValue("@grupo", txtGrupo.Text.Trim());
+                command.Parameters.AddWithValue("@idcarrera", idcarrera);
+
+                int filasAfectadas = command.ExecuteNonQuery();
+                con.Close();
+
+                if (filasAfectadas > 0)
+                {
+                    MessageBox.Show("Edicion Exitosa...");
+                    cargaDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al editar...");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error al editar el registro : " + ex.Message);
+            }
+        }
+        //Metodo para edotar un trabajador
+        private void EditarTrabajador()
+        {
+            coneccion = new clsConexion();
+            MySqlConnection con = coneccion.getConection();
+
+            try
+            {
+                int idarea = ObtenerIdArea(con, cmbArea.Text);
+                int rol = ObtenerIdRol(con,cmbTipo.Text);
+
+                string consulta = @"UPDATE trabajador SET nombres = @nombres, apellido_paterno = @apellidoPaterno,apellido_materno = @apellidoMaterno,telefono = @telefono,correo = @correo,codigo_postal = @codigoPostal,calle = @calle,colonia = @colonia,numero_casa = @numeroCasa,id_area = @idarea,id_rol = @idrol
+                 WHERE num_trabajador = @numeroTrabajador";
+
+                MySqlCommand command = new MySqlCommand(consulta, con);
+
+                command.Parameters.AddWithValue("@numeroTrabajador", txtMatricula.Text.Trim());
+                command.Parameters.AddWithValue("@nombres", txtNombre.Text.Trim());
+                command.Parameters.AddWithValue("@apellidoPaterno", txtAPaterno.Text.Trim());
+                command.Parameters.AddWithValue("@apellidoMaterno", txtAMaterno.Text.Trim());
+                command.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
+                command.Parameters.AddWithValue("@correo", txtCorreo.Text.Trim());
+                command.Parameters.AddWithValue("@codigoPostal", txtCP.Text.Trim());
+                command.Parameters.AddWithValue("@calle", txtCalle.Text.Trim());
+                command.Parameters.AddWithValue("@colonia", txtColonia.Text.Trim());
+                command.Parameters.AddWithValue("@numeroCasa", txtNumcasa.Text.Trim());
+                command.Parameters.AddWithValue("@idarea", idarea);
+                command.Parameters.AddWithValue("@idrol", rol);
+
+                int filasAfectadas = command.ExecuteNonQuery();
+                con.Close();
+
+                if (filasAfectadas > 0)
+                {
+                    MessageBox.Show("Edicion Exitosa...");
+                    cargaDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al editar...");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error al editar el registro : " + ex.Message);
+            }
+        }
+
+        private void txtFiltroMatricula_TextChanged(object sender, EventArgs e)
+        {
+            coneccion = new clsConexion();
+            MySqlConnection con = coneccion.getConection();
+            if (con != null)
+            {
+                TextBox txt = (TextBox)sender;
+
+                string consulta = @"
+                SELECT *
+                FROM vw_usuarios_catalogo
+                WHERE Matricula LIKE @busqueda
+                ORDER BY Matricula";
+
+                MySqlDataAdapter adapter =
+                    new MySqlDataAdapter(consulta, con);
+
+                adapter.SelectCommand.Parameters.AddWithValue(
+                    "@busqueda",
+                    "%" + txt.Text.Trim() + "%");
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dgvUsuarios.DataSource = dt;
+            }
         }
     }
 }
