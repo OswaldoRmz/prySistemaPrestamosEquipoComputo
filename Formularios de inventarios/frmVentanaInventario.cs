@@ -15,9 +15,7 @@ namespace prySistemaPrestamosEquipoComputo
         public frmVentanaInventario()
         {
             InitializeComponent();
-
-            // Agrega esta línea para activar el clic del botón Inicio
-            this.pcbInicio.Click += new System.EventHandler(this.pcbInicio_Click);
+            
             //Llamar el procedimiento de fondos transparentes
             prcfondoPadre();
             //HACER REFERENCIA A NUESTROS PICTUREBOX A USAR EL EVENTO
@@ -38,9 +36,7 @@ namespace prySistemaPrestamosEquipoComputo
             this.pcbReportes.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             //pcbCerrarSesion
             this.pcbSesion.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-           this.pcbSesion.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
-            // pcbInventario EVENTO CLICK
-            //this.pcbInventario.Click += new System.EventHandler(this.pcbInventario_Click);
+            this.pcbSesion.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
         }
         //Poner fondo del contenedor padre
         public void prcfondoPadre()
@@ -53,7 +49,7 @@ namespace prySistemaPrestamosEquipoComputo
             pcbReportes.Parent = pcbFondoIncio;
             pcbSesion.Parent = pcbFondoIncio;
             pcbUsuario.Parent = pcbFondoIncio;
-            label2.Parent = pcbFondoIncio;
+            lblRaya.Parent = pcbFondoIncio;
         }
         //Evento para el cuando pase el mouse por encima del objeto PictureBox
         private void PictureBox_MouseEnter(object sender, EventArgs e)
@@ -99,7 +95,7 @@ namespace prySistemaPrestamosEquipoComputo
 
         private void button1_Click(object sender, EventArgs e)
         {
-           frmInventarioEquipos inventarioEquipos = new frmInventarioEquipos();
+            frmInventarioEquipos inventarioEquipos = new frmInventarioEquipos();
             inventarioEquipos.Show();
             this.Hide(); // Cierra esta ventana para que no consuma memoria
         }
@@ -111,7 +107,7 @@ namespace prySistemaPrestamosEquipoComputo
             this.Hide();
         }
         // Abrir el formulario Inventario
-       
+
         //avrir el formulario devoluciones
         private void pcbDevoluciones_Click(object sender, EventArgs e)
         {
@@ -133,6 +129,14 @@ namespace prySistemaPrestamosEquipoComputo
             nuevoProducto.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmInventarioProductos productos = new frmInventarioProductos();
+            productos.Show();
+            productos.WindowState = FormWindowState.Maximized;
+            this.Hide();
+        }
     }
-    
+
 }

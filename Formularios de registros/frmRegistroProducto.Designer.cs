@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroProducto));
             this.pcbSesion = new System.Windows.Forms.PictureBox();
             this.lblRaya = new System.Windows.Forms.Label();
@@ -40,18 +41,20 @@
             this.pcbTituloPC = new System.Windows.Forms.PictureBox();
             this.pcbFondoIncio = new System.Windows.Forms.PictureBox();
             this.grpAlmacen = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.grbFiltroBusqueda = new System.Windows.Forms.GroupBox();
             this.panelFiltro = new System.Windows.Forms.Panel();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtFiltroNSerie = new System.Windows.Forms.TextBox();
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.nserie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFiltroNombre = new System.Windows.Forms.TextBox();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,15 +71,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.grbDatosUsuario = new System.Windows.Forms.GroupBox();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbReportes)).BeginInit();
@@ -88,10 +83,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbFondoIncio)).BeginInit();
             this.grpAlmacen.SuspendLayout();
             this.panelFiltro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelDatosUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbSesion
@@ -152,6 +148,7 @@
             this.pcbInventario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInventario.TabIndex = 22;
             this.pcbInventario.TabStop = false;
+            this.pcbInventario.Click += new System.EventHandler(this.pcbInventario_Click);
             // 
             // pcbDevoluciones
             // 
@@ -164,6 +161,7 @@
             this.pcbDevoluciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbDevoluciones.TabIndex = 21;
             this.pcbDevoluciones.TabStop = false;
+            this.pcbDevoluciones.Click += new System.EventHandler(this.pcbDevoluciones_Click);
             // 
             // pcbPrestamos
             // 
@@ -176,6 +174,7 @@
             this.pcbPrestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbPrestamos.TabIndex = 20;
             this.pcbPrestamos.TabStop = false;
+            this.pcbPrestamos.Click += new System.EventHandler(this.pcbPrestamos_Click);
             // 
             // pcbInicio
             // 
@@ -188,6 +187,7 @@
             this.pcbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInicio.TabIndex = 19;
             this.pcbInicio.TabStop = false;
+            this.pcbInicio.Click += new System.EventHandler(this.pcbInicio_Click);
             // 
             // pcbTituloPC
             // 
@@ -220,7 +220,7 @@
             this.grpAlmacen.Controls.Add(this.btnAgregar);
             this.grpAlmacen.Controls.Add(this.grbFiltroBusqueda);
             this.grpAlmacen.Controls.Add(this.panelFiltro);
-            this.grpAlmacen.Controls.Add(this.dgvUsuarios);
+            this.grpAlmacen.Controls.Add(this.dgvProductos);
             this.grpAlmacen.Controls.Add(this.panel1);
             this.grpAlmacen.Controls.Add(this.panelDatosUsuario);
             this.grpAlmacen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -230,6 +230,46 @@
             this.grpAlmacen.TabIndex = 27;
             this.grpAlmacen.TabStop = false;
             this.grpAlmacen.Text = "Registro de nuevos productos";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(802, 909);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(320, 41);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(1159, 909);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(320, 41);
+            this.btnEliminar.TabIndex = 14;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(409, 909);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(320, 41);
+            this.btnEditar.TabIndex = 13;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(35, 909);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(320, 41);
+            this.btnAgregar.TabIndex = 12;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // grbFiltroBusqueda
             // 
@@ -246,7 +286,7 @@
             this.panelFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFiltro.Controls.Add(this.lblFiltro);
             this.panelFiltro.Controls.Add(this.btnBuscar);
-            this.panelFiltro.Controls.Add(this.txtFiltroNSerie);
+            this.panelFiltro.Controls.Add(this.txtFiltroNombre);
             this.panelFiltro.Location = new System.Drawing.Point(769, 70);
             this.panelFiltro.Name = "panelFiltro";
             this.panelFiltro.Size = new System.Drawing.Size(677, 105);
@@ -271,73 +311,32 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // txtFiltroNSerie
+            // txtFiltroNombre
             // 
-            this.txtFiltroNSerie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFiltroNSerie.Location = new System.Drawing.Point(209, 58);
-            this.txtFiltroNSerie.Name = "txtFiltroNSerie";
-            this.txtFiltroNSerie.Size = new System.Drawing.Size(271, 34);
-            this.txtFiltroNSerie.TabIndex = 1;
+            this.txtFiltroNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFiltroNombre.Location = new System.Drawing.Point(209, 58);
+            this.txtFiltroNombre.Name = "txtFiltroNombre";
+            this.txtFiltroNombre.Size = new System.Drawing.Size(271, 34);
+            this.txtFiltroNombre.TabIndex = 1;
+            this.txtFiltroNombre.TextChanged += new System.EventHandler(this.txtFiltroNombre_TextChanged);
             // 
-            // dgvUsuarios
+            // dgvProductos
             // 
-            this.dgvUsuarios.AllowUserToAddRows = false;
-            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nserie,
-            this.nombre,
-            this.descripcion,
-            this.color,
-            this.cantidad,
-            this.categoria,
-            this.marca});
-            this.dgvUsuarios.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvUsuarios.Location = new System.Drawing.Point(769, 181);
-            this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.ReadOnly = true;
-            this.dgvUsuarios.RowHeadersVisible = false;
-            this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.RowTemplate.Height = 24;
-            this.dgvUsuarios.Size = new System.Drawing.Size(677, 684);
-            this.dgvUsuarios.TabIndex = 7;
-            // 
-            // nserie
-            // 
-            this.nserie.HeaderText = "nserie";
-            this.nserie.MinimumWidth = 6;
-            this.nserie.Name = "nserie";
-            this.nserie.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // color
-            // 
-            this.color.HeaderText = "color";
-            this.color.MinimumWidth = 6;
-            this.color.Name = "color";
-            this.color.ReadOnly = true;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "cantidad";
-            this.cantidad.MinimumWidth = 6;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvProductos.Location = new System.Drawing.Point(769, 181);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.RowHeadersVisible = false;
+            this.dgvProductos.RowHeadersWidth = 51;
+            this.dgvProductos.RowTemplate.Height = 24;
+            this.dgvProductos.Size = new System.Drawing.Size(677, 684);
+            this.dgvProductos.TabIndex = 7;
+            this.dgvProductos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellEnter);
             // 
             // panel1
             // 
@@ -355,6 +354,41 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(695, 241);
             this.panel1.TabIndex = 2;
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Items.AddRange(new object[] {
+            "Equipo",
+            "Consumible"});
+            this.cmbCategoria.Location = new System.Drawing.Point(141, 95);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(470, 36);
+            this.cmbCategoria.TabIndex = 11;
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Disponible",
+            "Prestado",
+            "Dañado",
+            "Baja"});
+            this.cmbEstado.Location = new System.Drawing.Point(142, 194);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(470, 36);
+            this.cmbEstado.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 202);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 28);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Estado";
             // 
             // txtMarca
             // 
@@ -530,98 +564,9 @@
             this.grbDatosUsuario.TabStop = false;
             this.grbDatosUsuario.Text = "Datos del articulo";
             // 
-            // categoria
+            // errorProvider1
             // 
-            this.categoria.HeaderText = "categoria";
-            this.categoria.MinimumWidth = 6;
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
-            // 
-            // marca
-            // 
-            this.marca.HeaderText = "marca";
-            this.marca.MinimumWidth = 6;
-            this.marca.Name = "marca";
-            this.marca.ReadOnly = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(802, 909);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(320, 41);
-            this.btnCancel.TabIndex = 15;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(1159, 909);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(320, 41);
-            this.btnEliminar.TabIndex = 14;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(409, 909);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(320, 41);
-            this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(35, 909);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(320, 41);
-            this.btnAgregar.TabIndex = 12;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 202);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 28);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Estado";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "Disponible",
-            "",
-            "Prestado",
-            "",
-            "Dañado",
-            "",
-            "Baja"});
-            this.cmbEstado.Location = new System.Drawing.Point(142, 194);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(470, 36);
-            this.cmbEstado.TabIndex = 10;
-            // 
-            // cmbCategoria
-            // 
-            this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Items.AddRange(new object[] {
-            "Disponible",
-            "",
-            "Prestado",
-            "",
-            "Dañado",
-            "",
-            "Baja"});
-            this.cmbCategoria.Location = new System.Drawing.Point(141, 95);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(470, 36);
-            this.cmbCategoria.TabIndex = 11;
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmRegistroProducto
             // 
@@ -641,6 +586,8 @@
             this.Controls.Add(this.pcbFondoIncio);
             this.Name = "frmRegistroProducto";
             this.Text = "frmRegistroProducto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmRegistroProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbReportes)).EndInit();
@@ -653,12 +600,13 @@
             this.grpAlmacen.ResumeLayout(false);
             this.panelFiltro.ResumeLayout(false);
             this.panelFiltro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelDatosUsuario.ResumeLayout(false);
             this.panelDatosUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -697,16 +645,9 @@
         private System.Windows.Forms.Panel panelFiltro;
         private System.Windows.Forms.GroupBox grbFiltroBusqueda;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtFiltroNSerie;
+        private System.Windows.Forms.TextBox txtFiltroNombre;
         private System.Windows.Forms.Label lblFiltro;
-        private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nserie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn color;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
@@ -714,5 +655,6 @@
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

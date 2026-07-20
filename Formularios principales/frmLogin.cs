@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using prySistemaPrestamosEquipoComputo.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,22 +18,11 @@ namespace prySistemaPrestamosEquipoComputo
         public frmLogin()
         {
             InitializeComponent();
-        }
+        }            
 
         private void btnAcceso_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
-            string usuario = txtUsuario.Text;
-            string clave = txtClaveAcceso.Text;
-            string password = txtPassword.Text;
-
-            //validamos el campo usuario
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                errorProvider1.SetError(txtUsuario,"Campo vacio");
-                txtUsuario.Focus();
-                return;
-            }
+            errorProvider1.Clear();                       
             //validamos el campo clave
             if (string.IsNullOrWhiteSpace(txtClaveAcceso.Text))
             {
@@ -47,26 +38,78 @@ namespace prySistemaPrestamosEquipoComputo
                 return;
             }
 
-            //Acceso basico
-            if (usuario == "admin" && clave == "20250994" && password == "admin")
-            {
-                MessageBox.Show("Acceso correcto");
-                frmPantallaPrincipal principal = new frmPantallaPrincipal();
-                principal.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Acceso incorrecto. Intente nuevamente");
-                limpiarCajas();
-            }
+            IniciarSesion();
         }
         //procedimiento para borrar las cajas de texto
         public void limpiarCajas()
-        {
-            txtUsuario.Clear();
+        {            
             txtClaveAcceso.Clear();
             txtPassword.Clear();
+        }
+        //metodo para validar el incio de sesion
+        private void IniciarSesion()
+        {
+            clsConexion conexion = new clsConexion();
+            MySqlConnection con = conexion.getConection();
+            try
+            {                
+
+                string consulta = @"SELECT t.num_trabajador,t.nombres,t.apellido_paterno,t.apellido_materno,t.contrasena,t.estado,r.tipo_rol FROM trabajador t
+                    INNER JOIN rol r ON t.id_rol = r.id_rol WHERE t.num_trabajador = @claveTrabajador LIMIT 1";
+
+                MySqlCommand comando = new MySqlCommand(consulta, con);
+
+                comando.Parameters.AddWithValue("@claveTrabajador",txtClaveAcceso.Text.Trim());
+                using (MySqlDataReader lector = comando.ExecuteReader())
+                {
+                    if (!lector.Read())
+                    {
+                        MessageBox.Show("Usuario, clave de acceso o contraseña incorrectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    string estado = lector["estado"]?.ToString() ?? "";                    
+
+                    string hashGuardado = lector["contrasena"]?.ToString() ?? "";
+
+                    bool contrasenaCorrecta;
+
+                    try
+                    {
+                        contrasenaCorrecta = BCrypt.Net.BCrypt.Verify(txtPassword.Text,hashGuardado);
+                    }
+                    catch
+                    {
+                        contrasenaCorrecta = false;
+                    }
+
+                    if (!contrasenaCorrecta)
+                    {
+                        MessageBox.Show("Usuario, clave de acceso o contraseña incorrectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    clsSesion.NumTrabajador = lector["num_trabajador"]?.ToString() ?? "";
+
+                    clsSesion.NombreCompleto = (lector["nombres"]?.ToString() + " " + lector["apellido_paterno"]?.ToString() + " " + lector["apellido_materno"]?.ToString()).Trim();
+
+                    clsSesion.Rol = lector["tipo_rol"]?.ToString() ?? "";
+                }
+                con.Close();
+                MessageBox.Show("Bienvenido " + clsSesion.NombreCompleto +"\nRol: " + clsSesion.Rol,"Inicio de sesión correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                //Abrir la ventana de incio
+                frmPantallaPrincipal principal = new frmPantallaPrincipal();
+
+                principal.WindowState = FormWindowState.Maximized;
+                principal.Show();
+
+                this.Hide();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error al iniciar sesión:\n" + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }           
         }
     }
 }

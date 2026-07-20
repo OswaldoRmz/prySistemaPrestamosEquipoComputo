@@ -50,7 +50,6 @@
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRaya = new System.Windows.Forms.Label();
             this.pcbUsuario = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pcbSesion = new System.Windows.Forms.PictureBox();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInventario)).BeginInit();
@@ -169,7 +168,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(659, 95);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(208, 169);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +179,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(1105, 95);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(208, 169);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,8 +188,9 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(719, 271);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 23;
@@ -200,13 +200,15 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(1089, 271);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(241, 28);
             this.button2.TabIndex = 24;
             this.button2.Text = "ACCESORIOS Y CONSUMIBLES";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // gbInventario
             // 
@@ -214,9 +216,9 @@
             this.gbInventario.Controls.Add(this.dgvInventario);
             this.gbInventario.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbInventario.Location = new System.Drawing.Point(353, 334);
-            this.gbInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInventario.Margin = new System.Windows.Forms.Padding(4);
             this.gbInventario.Name = "gbInventario";
-            this.gbInventario.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbInventario.Padding = new System.Windows.Forms.Padding(4);
             this.gbInventario.Size = new System.Drawing.Size(1457, 574);
             this.gbInventario.TabIndex = 25;
             this.gbInventario.TabStop = false;
@@ -245,7 +247,7 @@
             this.dgvInventario.EnableHeadersVisualStyles = false;
             this.dgvInventario.GridColor = System.Drawing.SystemColors.Window;
             this.dgvInventario.Location = new System.Drawing.Point(21, 60);
-            this.dgvInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvInventario.Margin = new System.Windows.Forms.Padding(4);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.RowHeadersVisible = false;
             this.dgvInventario.RowHeadersWidth = 51;
@@ -283,7 +285,7 @@
             this.lblRaya.AutoSize = true;
             this.lblRaya.BackColor = System.Drawing.Color.Transparent;
             this.lblRaya.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRaya.Location = new System.Drawing.Point(-9, 818);
+            this.lblRaya.Location = new System.Drawing.Point(-7, 811);
             this.lblRaya.Name = "lblRaya";
             this.lblRaya.Size = new System.Drawing.Size(340, 25);
             this.lblRaya.TabIndex = 26;
@@ -293,7 +295,7 @@
             // 
             this.pcbUsuario.BackColor = System.Drawing.Color.Transparent;
             this.pcbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pcbUsuario.Image")));
-            this.pcbUsuario.Location = new System.Drawing.Point(-7, 830);
+            this.pcbUsuario.Location = new System.Drawing.Point(-4, 838);
             this.pcbUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbUsuario.Name = "pcbUsuario";
             this.pcbUsuario.Size = new System.Drawing.Size(337, 90);
@@ -301,22 +303,11 @@
             this.pcbUsuario.TabIndex = 27;
             this.pcbUsuario.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-9, 818);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(340, 25);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "-----------------------------------------";
-            // 
             // pcbSesion
             // 
             this.pcbSesion.BackColor = System.Drawing.Color.Transparent;
             this.pcbSesion.Image = ((System.Drawing.Image)(resources.GetObject("pcbSesion.Image")));
-            this.pcbSesion.Location = new System.Drawing.Point(-4, 926);
+            this.pcbSesion.Location = new System.Drawing.Point(-4, 932);
             this.pcbSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbSesion.Name = "pcbSesion";
             this.pcbSesion.Size = new System.Drawing.Size(337, 90);
@@ -343,7 +334,6 @@
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.pcbSesion);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.pcbUsuario);
             this.Controls.Add(this.lblRaya);
             this.Controls.Add(this.gbInventario);
@@ -359,7 +349,7 @@
             this.Controls.Add(this.pcbInicio);
             this.Controls.Add(this.pcbTituloPC);
             this.Controls.Add(this.pcbFondoIncio);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmVentanaInventario";
             this.Text = "frmVentanaInventario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -404,7 +394,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.Label lblRaya;
         private System.Windows.Forms.PictureBox pcbUsuario;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pcbSesion;
         private System.Windows.Forms.Button btnAgregarProducto;
     }

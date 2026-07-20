@@ -104,6 +104,7 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAccesorio1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbReportes)).BeginInit();
@@ -136,6 +137,7 @@
             this.pcbSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbSesion.TabIndex = 36;
             this.pcbSesion.TabStop = false;
+            this.pcbSesion.Click += new System.EventHandler(this.pcbSesion_Click);
             // 
             // lblRaya
             // 
@@ -183,6 +185,7 @@
             this.pcbInventario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInventario.TabIndex = 32;
             this.pcbInventario.TabStop = false;
+            this.pcbInventario.Click += new System.EventHandler(this.pcbInventario_Click);
             // 
             // pcbDevoluciones
             // 
@@ -195,6 +198,7 @@
             this.pcbDevoluciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbDevoluciones.TabIndex = 31;
             this.pcbDevoluciones.TabStop = false;
+            this.pcbDevoluciones.Click += new System.EventHandler(this.pcbDevoluciones_Click);
             // 
             // pcbPrestamos
             // 
@@ -207,6 +211,7 @@
             this.pcbPrestamos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbPrestamos.TabIndex = 30;
             this.pcbPrestamos.TabStop = false;
+            this.pcbPrestamos.Click += new System.EventHandler(this.pcbPrestamos_Click);
             // 
             // pcbInicio
             // 
@@ -219,6 +224,7 @@
             this.pcbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInicio.TabIndex = 29;
             this.pcbInicio.TabStop = false;
+            this.pcbInicio.Click += new System.EventHandler(this.pcbInicio_Click);
             // 
             // pcbTituloPC
             // 
@@ -256,11 +262,11 @@
             this.grpContenedor.Controls.Add(this.panel2);
             this.grpContenedor.Controls.Add(this.panel1);
             this.grpContenedor.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpContenedor.Location = new System.Drawing.Point(347, 14);
+            this.grpContenedor.Location = new System.Drawing.Point(346, 11);
             this.grpContenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpContenedor.Name = "grpContenedor";
             this.grpContenedor.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpContenedor.Size = new System.Drawing.Size(1544, 1008);
+            this.grpContenedor.Size = new System.Drawing.Size(1544, 846);
             this.grpContenedor.TabIndex = 37;
             this.grpContenedor.TabStop = false;
             this.grpContenedor.Text = "Accesorios";
@@ -884,11 +890,24 @@
             this.lblAccesorio1.TabIndex = 2;
             this.lblAccesorio1.Text = "label1";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(342, 908);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(382, 23);
+            this.linkLabel1.TabIndex = 50;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Da click aqui para editar o añadir un producto";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // frmInventarioProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.grpContenedor);
             this.Controls.Add(this.pcbSesion);
             this.Controls.Add(this.lblRaya);
@@ -1013,5 +1032,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

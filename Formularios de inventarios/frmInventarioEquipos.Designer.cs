@@ -104,6 +104,7 @@
             this.pcbInicio = new System.Windows.Forms.PictureBox();
             this.pcbTituloPC = new System.Windows.Forms.PictureBox();
             this.pcbFondoIncio = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -593,7 +594,7 @@
             this.grpContenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpContenedor.Name = "grpContenedor";
             this.grpContenedor.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpContenedor.Size = new System.Drawing.Size(1544, 1008);
+            this.grpContenedor.Size = new System.Drawing.Size(1544, 944);
             this.grpContenedor.TabIndex = 48;
             this.grpContenedor.TabStop = false;
             this.grpContenedor.Text = "Equipos";
@@ -770,7 +771,7 @@
             // 
             this.pcbSesion.BackColor = System.Drawing.Color.Transparent;
             this.pcbSesion.Image = ((System.Drawing.Image)(resources.GetObject("pcbSesion.Image")));
-            this.pcbSesion.Location = new System.Drawing.Point(0, 935);
+            this.pcbSesion.Location = new System.Drawing.Point(0, 916);
             this.pcbSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbSesion.Name = "pcbSesion";
             this.pcbSesion.Size = new System.Drawing.Size(337, 90);
@@ -783,7 +784,7 @@
             this.lblRaya.AutoSize = true;
             this.lblRaya.BackColor = System.Drawing.Color.Transparent;
             this.lblRaya.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRaya.Location = new System.Drawing.Point(-4, 821);
+            this.lblRaya.Location = new System.Drawing.Point(-4, 802);
             this.lblRaya.Name = "lblRaya";
             this.lblRaya.Size = new System.Drawing.Size(340, 25);
             this.lblRaya.TabIndex = 46;
@@ -793,7 +794,7 @@
             // 
             this.pcbUsuario.BackColor = System.Drawing.Color.Transparent;
             this.pcbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pcbUsuario.Image")));
-            this.pcbUsuario.Location = new System.Drawing.Point(0, 839);
+            this.pcbUsuario.Location = new System.Drawing.Point(0, 820);
             this.pcbUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbUsuario.Name = "pcbUsuario";
             this.pcbUsuario.Size = new System.Drawing.Size(337, 90);
@@ -805,7 +806,7 @@
             // 
             this.pcbReportes.BackColor = System.Drawing.Color.Transparent;
             this.pcbReportes.Image = ((System.Drawing.Image)(resources.GetObject("pcbReportes.Image")));
-            this.pcbReportes.Location = new System.Drawing.Point(0, 719);
+            this.pcbReportes.Location = new System.Drawing.Point(0, 700);
             this.pcbReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbReportes.Name = "pcbReportes";
             this.pcbReportes.Size = new System.Drawing.Size(337, 90);
@@ -817,7 +818,7 @@
             // 
             this.pcbInventario.BackColor = System.Drawing.Color.Transparent;
             this.pcbInventario.Image = ((System.Drawing.Image)(resources.GetObject("pcbInventario.Image")));
-            this.pcbInventario.Location = new System.Drawing.Point(0, 586);
+            this.pcbInventario.Location = new System.Drawing.Point(0, 567);
             this.pcbInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbInventario.Name = "pcbInventario";
             this.pcbInventario.Size = new System.Drawing.Size(337, 90);
@@ -829,7 +830,7 @@
             // 
             this.pcbDevoluciones.BackColor = System.Drawing.Color.Transparent;
             this.pcbDevoluciones.Image = ((System.Drawing.Image)(resources.GetObject("pcbDevoluciones.Image")));
-            this.pcbDevoluciones.Location = new System.Drawing.Point(0, 453);
+            this.pcbDevoluciones.Location = new System.Drawing.Point(0, 434);
             this.pcbDevoluciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbDevoluciones.Name = "pcbDevoluciones";
             this.pcbDevoluciones.Size = new System.Drawing.Size(337, 90);
@@ -841,7 +842,7 @@
             // 
             this.pcbPrestamos.BackColor = System.Drawing.Color.Transparent;
             this.pcbPrestamos.Image = ((System.Drawing.Image)(resources.GetObject("pcbPrestamos.Image")));
-            this.pcbPrestamos.Location = new System.Drawing.Point(0, 320);
+            this.pcbPrestamos.Location = new System.Drawing.Point(0, 301);
             this.pcbPrestamos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbPrestamos.Name = "pcbPrestamos";
             this.pcbPrestamos.Size = new System.Drawing.Size(337, 90);
@@ -853,19 +854,20 @@
             // 
             this.pcbInicio.BackColor = System.Drawing.Color.Transparent;
             this.pcbInicio.Image = ((System.Drawing.Image)(resources.GetObject("pcbInicio.Image")));
-            this.pcbInicio.Location = new System.Drawing.Point(0, 188);
+            this.pcbInicio.Location = new System.Drawing.Point(0, 171);
             this.pcbInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbInicio.Name = "pcbInicio";
             this.pcbInicio.Size = new System.Drawing.Size(337, 90);
             this.pcbInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbInicio.TabIndex = 40;
             this.pcbInicio.TabStop = false;
+            this.pcbInicio.Click += new System.EventHandler(this.pcbInicio_Click);
             // 
             // pcbTituloPC
             // 
             this.pcbTituloPC.BackColor = System.Drawing.Color.Transparent;
             this.pcbTituloPC.Image = ((System.Drawing.Image)(resources.GetObject("pcbTituloPC.Image")));
-            this.pcbTituloPC.Location = new System.Drawing.Point(0, 26);
+            this.pcbTituloPC.Location = new System.Drawing.Point(0, 11);
             this.pcbTituloPC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pcbTituloPC.Name = "pcbTituloPC";
             this.pcbTituloPC.Size = new System.Drawing.Size(335, 121);
@@ -884,11 +886,24 @@
             this.pcbFondoIncio.TabIndex = 38;
             this.pcbFondoIncio.TabStop = false;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(365, 978);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(382, 23);
+            this.linkLabel1.TabIndex = 49;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Da click aqui para editar o añadir un producto";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // frmInventarioEquipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.grpContenedor);
             this.Controls.Add(this.pcbSesion);
             this.Controls.Add(this.lblRaya);
@@ -900,10 +915,10 @@
             this.Controls.Add(this.pcbInicio);
             this.Controls.Add(this.pcbTituloPC);
             this.Controls.Add(this.pcbFondoIncio);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmInventarioEquipos";
             this.Text = "frmInventarioEquipos";
-            this.Load += new System.EventHandler(this.frmInventarioEquipos_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1014,5 +1029,6 @@
         private System.Windows.Forms.PictureBox pcbInicio;
         private System.Windows.Forms.PictureBox pcbTituloPC;
         private System.Windows.Forms.PictureBox pcbFondoIncio;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

@@ -62,5 +62,59 @@ namespace prySistemaPrestamosEquipoComputo
             PictureBox pb = (PictureBox)sender;
             pb.BackColor = Color.Transparent;
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmRegistroProducto nuevoProducto = new frmRegistroProducto();
+            nuevoProducto.Show();
+            nuevoProducto.WindowState = FormWindowState.Maximized;
+            this.Hide();
+        }
+
+        private void pcbInicio_Click(object sender, EventArgs e)
+        {
+            frmPantallaPrincipal inicio = new frmPantallaPrincipal();
+            inicio.Show();
+            this.Hide();
+        }
+
+        private void pcbPrestamos_Click(object sender, EventArgs e)
+        {
+            frmVentanaPrestamos prestamo = new frmVentanaPrestamos();
+            prestamo.Show();
+            prestamo.WindowState = FormWindowState.Maximized;
+            this.Hide();
+        }
+
+        private void pcbDevoluciones_Click(object sender, EventArgs e)
+        {
+            frmVentanaDevoluciones devolucion = new frmVentanaDevoluciones();
+            devolucion.Show();
+            devolucion.WindowState = FormWindowState.Maximized;
+            this.Hide();
+        }
+
+        private void pcbInventario_Click(object sender, EventArgs e)
+        {
+            frmVentanaInventario inventario = new frmVentanaInventario();
+            inventario.Show();
+            this.Hide();
+        }
+
+        private void pcbSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+        "¿Desea cerrar la sesión?",
+        "Cerrar sesión",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                frmLogin login = new frmLogin();
+                login.Show();
+                this.Hide();
+            }
+        }
     }
 }
