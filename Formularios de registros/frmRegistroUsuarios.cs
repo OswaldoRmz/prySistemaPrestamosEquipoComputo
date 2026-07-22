@@ -14,8 +14,7 @@ namespace prySistemaPrestamosEquipoComputo
 {
     public partial class frmRegistroUsuarios : Form
     {
-        //variables para editar
-        bool esEdicion = false;
+        //variables para editar      
         string matriculaSeleccionada = "";
         string tablaOrigenSeleccionada = "";
         public frmRegistroUsuarios()
@@ -88,10 +87,7 @@ namespace prySistemaPrestamosEquipoComputo
                     con.Open();
                 }
 
-                string consulta = @"
-            SELECT *
-            FROM vw_usuarios_catalogo
-            ORDER BY Matricula";
+                string consulta = @"SELECT * FROM vw_usuarios_catalogo ORDER BY Matricula";
 
                 MySqlDataAdapter adaptador =
                     new MySqlDataAdapter(consulta, con);
@@ -755,7 +751,7 @@ namespace prySistemaPrestamosEquipoComputo
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
 
-            esEdicion = true;
+            
 
             ActualizarColorBoton();
         }

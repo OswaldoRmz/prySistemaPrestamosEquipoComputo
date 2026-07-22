@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prySistemaPrestamosEquipoComputo.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,10 +12,13 @@ using System.Windows.Forms;
 namespace prySistemaPrestamosEquipoComputo
 {
     public partial class frmPantallaPrincipal : Form
-    {                
+    {
+        clsLectorSemantico lec = new clsLectorSemantico();
         public frmPantallaPrincipal()
         {
             InitializeComponent();
+            ConfigurarAccesibilidad();
+            AsignarEventosDeLectura(this);
             //Llamar el procedimiento de fondos transparentes
             prcfondoPadre();
             //HACER REFERENCIA A NUESTROS PICTUREBOX A USAR EL EVENTO
@@ -37,7 +41,38 @@ namespace prySistemaPrestamosEquipoComputo
             this.pcbSesion.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
             this.pcbSesion.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);            
         }
-        
+        //configuracion de accesibilidad
+        private void ConfigurarAccesibilidad()
+        {
+            this.AccessibleName = "Pantalla inicio";
+            this.AccessibleDescription = "Bienvenido a la pantalla de inicio";
+
+            pcbInicio.AccessibleName = "Inicio";
+            pcbInicio.AccessibleDescription = "Click para entrar a la pantalla de inicio";
+
+            pcbPrestamos.AccessibleName = "Préstamos";
+            pcbPrestamos.AccessibleDescription = "Click para entrar a la pantalla de préstamos";
+
+            pcbDevoluciones.AccessibleName = "Devolciones";
+            pcbDevoluciones.AccessibleDescription = "Click para entrar a la pantalla de devoluciones";
+
+            pcbInventario.AccessibleName = "Inventario";
+            pcbInventario.AccessibleDescription = "Click para entrar a la pantallla de inventario";
+
+            pcbSesion.AccessibleName = "Cerrar sesión";
+            pcbSesion.AccessibleDescription = "Click para cerrar sesión";
+        }
+        //Asignar evento de lectura
+        private void AsignarEventosDeLectura(Control contenedor)
+        {
+            foreach (Control c in contenedor.Controls)
+            {
+                c.MouseEnter += (sender, e) => { lec.Leer(c); };
+
+                if (c.HasChildren)
+                    AsignarEventosDeLectura(c);
+            }
+        }
         //Poner fondo del contenedor padre
         public void prcfondoPadre()
         {
@@ -102,8 +137,6 @@ namespace prySistemaPrestamosEquipoComputo
             devolucion.Show();
             devolucion.WindowState = FormWindowState.Maximized;
             this.Hide();
-        }
-
-        
+        }        
     }
 }

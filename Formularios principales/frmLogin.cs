@@ -68,9 +68,9 @@ namespace prySistemaPrestamosEquipoComputo
                         return;
                     }
 
-                    string estado = lector["estado"]?.ToString() ?? "";                    
+                    string estado = lector["estado"].ToString();
 
-                    string hashGuardado = lector["contrasena"]?.ToString() ?? "";
+                    string hashGuardado = lector["contrasena"].ToString();
 
                     bool contrasenaCorrecta;
 
@@ -83,17 +83,17 @@ namespace prySistemaPrestamosEquipoComputo
                         contrasenaCorrecta = false;
                     }
 
-                    if (!contrasenaCorrecta)
+                    if (contrasenaCorrecta == false)
                     {
                         MessageBox.Show("Usuario, clave de acceso o contraseña incorrectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    clsSesion.NumTrabajador = lector["num_trabajador"]?.ToString() ?? "";
+                    clsSesion.NumTrabajador = lector["num_trabajador"].ToString();
 
-                    clsSesion.NombreCompleto = (lector["nombres"]?.ToString() + " " + lector["apellido_paterno"]?.ToString() + " " + lector["apellido_materno"]?.ToString()).Trim();
+                    clsSesion.NombreCompleto = (lector["nombres"].ToString() + " " + lector["apellido_paterno"]?.ToString() + " " + lector["apellido_materno"].ToString()).Trim();
 
-                    clsSesion.Rol = lector["tipo_rol"]?.ToString() ?? "";
+                    clsSesion.Rol = lector["tipo_rol"].ToString();
                 }
                 con.Close();
                 MessageBox.Show("Bienvenido " + clsSesion.NombreCompleto +"\nRol: " + clsSesion.Rol,"Inicio de sesión correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
