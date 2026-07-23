@@ -737,5 +737,10 @@ namespace prySistemaPrestamosEquipoComputo
             inventario.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
+
+        private void panelFiltro_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
