@@ -919,5 +919,10 @@ namespace prySistemaPrestamosEquipoComputo
                 dgvUsuarios.DataSource = dt;
             }
         }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
