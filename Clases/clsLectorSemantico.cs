@@ -19,7 +19,8 @@ namespace prySistemaPrestamosEquipoComputo.Clases
                 voz = new SpeechSynthesizer();
                 voz.Volume = 100;
                 voz.Rate = 1;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 voz = null;
             }

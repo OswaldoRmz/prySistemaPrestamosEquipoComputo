@@ -258,6 +258,7 @@ namespace prySistemaPrestamosEquipoComputo
                 //habilitar grado y grupo
                 txtGrado.Enabled = true;
                 txtGrupo.Enabled = true;
+                cmbArea.Enabled = true;
                 txtGrado.BackColor = Color.White;
                 txtGrupo.BackColor = Color.White;
             }
@@ -280,6 +281,7 @@ namespace prySistemaPrestamosEquipoComputo
                 txtGrupo.Enabled = false;
                 txtGrado.Text = "";
                 txtGrupo.Text = "";
+                cmbArea.Enabled = true;
                 txtGrado.BackColor = SystemColors.Control;
                 txtGrupo.BackColor = SystemColors.Control;
             }

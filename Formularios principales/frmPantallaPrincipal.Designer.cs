@@ -114,6 +114,7 @@
             this.pcbReportes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbReportes.TabIndex = 4;
             this.pcbReportes.TabStop = false;
+            this.pcbReportes.Click += new System.EventHandler(this.pcbReportes_Click);
             // 
             // pcbInventario
             // 

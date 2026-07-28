@@ -105,11 +105,12 @@
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPassword.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtPassword.Location = new System.Drawing.Point(68, 254);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(187, 22);
+            this.txtPassword.Size = new System.Drawing.Size(187, 25);
             this.txtPassword.TabIndex = 7;
             this.toolTip1.SetToolTip(this.txtPassword, "Ingrese contraseña");
             // 
@@ -127,10 +128,11 @@
             // txtClaveAcceso
             // 
             this.txtClaveAcceso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClaveAcceso.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txtClaveAcceso.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClaveAcceso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtClaveAcceso.Location = new System.Drawing.Point(68, 175);
             this.txtClaveAcceso.Name = "txtClaveAcceso";
-            this.txtClaveAcceso.Size = new System.Drawing.Size(187, 22);
+            this.txtClaveAcceso.Size = new System.Drawing.Size(187, 27);
             this.txtClaveAcceso.TabIndex = 5;
             this.toolTip1.SetToolTip(this.txtClaveAcceso, "Matricula / Clave de trabajador");
             // 

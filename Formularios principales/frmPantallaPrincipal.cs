@@ -1,4 +1,5 @@
 ﻿using prySistemaPrestamosEquipoComputo.Clases;
+using prySistemaPrestamosEquipoComputo.Formularios_de_movientos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace prySistemaPrestamosEquipoComputo
             this.pcbSesion.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
             this.pcbSesion.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);            
         }
-        //configuracion de accesibilidad
+        //configuracion de accesibilidad en la pantalla principal del formulario
         private void ConfigurarAccesibilidad()
         {
             this.AccessibleName = "Pantalla inicio";
@@ -137,6 +138,14 @@ namespace prySistemaPrestamosEquipoComputo
             devolucion.Show();
             devolucion.WindowState = FormWindowState.Maximized;
             this.Hide();
-        }        
+        }
+
+        private void pcbReportes_Click(object sender, EventArgs e)
+        {
+            frmReportes repor = new frmReportes();
+            repor.Show();
+            repor.WindowState = FormWindowState.Maximized;
+            this.Hide();
+        }
     }
 }

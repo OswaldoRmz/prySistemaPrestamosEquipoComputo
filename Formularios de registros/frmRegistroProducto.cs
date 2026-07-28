@@ -348,7 +348,7 @@ namespace prySistemaPrestamosEquipoComputo
             else if (cmbCategoria.Text == "Consumible")
             {
                 txtNSerie.Clear();
-                txtNSerie.Enabled = false;
+                txtNSerie.Enabled = true;
                 txtNSerie.BackColor = SystemColors.Control;
 
                 cmbEstado.Text = "Disponible";
