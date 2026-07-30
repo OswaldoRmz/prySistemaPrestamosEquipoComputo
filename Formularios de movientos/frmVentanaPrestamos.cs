@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+using MySql.Data.MySqlClient;
+using prySistemaPrestamosEquipoComputo.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +15,7 @@ namespace prySistemaPrestamosEquipoComputo
 {
     public partial class frmVentanaPrestamos : Form
     {
+        private clsConexion conexion;
         public frmVentanaPrestamos()
         {
             
@@ -113,7 +117,42 @@ namespace prySistemaPrestamosEquipoComputo
                 txtMatricula.Focus();
                 return;
             }
+
+            //cargar datos del usuario a las cajas
+            string consultaAlumno = "SELECT nombres, apellido_paterno, apellido_materno, telefono, correo FROM alumno WHERE matricula = @matricula";
+
+            conexion = new clsConexion();
+            MySqlConnection con = conexion.getConection();
+
+            MySqlCommand cmd = new MySqlCommand(consultaAlumno, con);
+            cmd.Parameters.AddWithValue("@matricula", txtMatricula.Text);
+
+            MySqlDataReader lector = cmd.ExecuteReader();
+
+            if (lector.Read())
+            {
+                txtNombre.Text = lector["nombres"].ToString();
+                txtAPaterno.Text = lector["apellido_paterno"].ToString();
+                txtAMaterno.Text = lector["apellido_materno"].ToString();
+                txtTelefono.Text = lector["telefono"].ToString();
+                txtCorreo.Text = lector["correo"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no encontrado.");
+                txtNombre.Clear();
+                txtAPaterno.Clear();
+                txtAMaterno.Clear();
+                txtTelefono.Clear();
+                txtCorreo.Clear();
+            }
+
+            lector.Close();
+            con.Close();
         }
+
+         
+
         //EVENTO CLICK AL ACEPTAR TODOS LOS CAMPOS
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -125,63 +164,63 @@ namespace prySistemaPrestamosEquipoComputo
                 txtMatricula.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo nombre
             if (string.IsNullOrWhiteSpace(txtNombre.Text)) 
             {
                 errorProvider1.SetError(txtNombre, "Llene el campo\nAntes de aceptar ");
                 txtNombre.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo apelldio paterno
             if (string.IsNullOrWhiteSpace(txtAPaterno.Text)) 
             {
                 errorProvider1.SetError(txtAPaterno, "Llene el campo\nAntes de aceptar ");
                 txtAPaterno.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo apellido materno
             if (string.IsNullOrWhiteSpace(txtAMaterno.Text)) 
             {
                 errorProvider1.SetError(txtAMaterno, "Llene el campo\nAntes de aceptar ");
                 txtAMaterno.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo telefono
             if (string.IsNullOrWhiteSpace(txtTelefono.Text)) 
             {
                 errorProvider1.SetError(txtTelefono, "Llene el campo\nAntes de aceptar ");
                 txtTelefono.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo correo
             if (string.IsNullOrWhiteSpace(txtCorreo.Text)) 
             {
                 errorProvider1.SetError(txtCorreo, "Llene el campo\nAntes de aceptar ");
                 txtCorreo.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo dispositivo
             if (string.IsNullOrWhiteSpace(cmbDispositivo.Text)) 
             {
                 errorProvider1.SetError(cmbDispositivo, "Llene el campo\nAntes de aceptar ");
                 cmbDispositivo.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo garantia
             if (string.IsNullOrWhiteSpace(txtGarantia.Text)) 
             {
                 errorProvider1.SetError(txtGarantia, "Llene el campo\nAntes de aceptar ");
                 txtGarantia.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo prestamo
             if (string.IsNullOrWhiteSpace(dtmPrestamo.Text)) 
             {
                 errorProvider1.SetError(dtmPrestamo, "Llene el campo\nAntes de aceptar ");
                 dtmPrestamo.Focus();
                 return;
             }
-            //validamos el campo matricula
+            //validamos el campo devolucion
             if (string.IsNullOrWhiteSpace(dtmDevolucion.Text)) 
             {
                 errorProvider1.SetError(dtmDevolucion, "Llene el campo\nAntes de aceptar ");
@@ -242,5 +281,6 @@ namespace prySistemaPrestamosEquipoComputo
             inventario.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
+
     }
 }
