@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using prySistemaPrestamosEquipoComputo.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace prySistemaPrestamosEquipoComputo
 {
     public partial class frmVentanaInventario : Form
     {
+        clsConexion conexion;
         public frmVentanaInventario()
         {
             InitializeComponent();
@@ -95,9 +98,40 @@ namespace prySistemaPrestamosEquipoComputo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmInventarioEquipos inventarioEquipos = new frmInventarioEquipos();
-            inventarioEquipos.Show();
-            this.Hide(); // Cierra esta ventana para que no consuma memoria
+            conexion = new clsConexion();
+            MySqlConnection con = conexion.getConection();
+
+            string consulta = @"
+        SELECT
+            e.id_equipo,
+            e.nombre,
+            e.descripcion,
+            e.numero_serie,
+            e.color,
+            m.nombre AS Marca,
+            c.nombre AS Categoria
+        FROM equipo e
+
+        INNER JOIN marca m
+            ON e.id_marca = m.id_marca
+
+        INNER JOIN categoria c
+            ON e.id_categoria = c.id_categoria
+
+        WHERE c.nombre='Equipo';";
+
+
+            MySqlDataAdapter da = new MySqlDataAdapter(consulta, con);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            dgvInventario.DataSource = dt;
+            dgvInventario.Columns["id_equipo"].Visible = false;
+            dgvInventario.Columns["numero_serie"].Visible = false;
+
+            con.Close();
         }
         private void pcbPrestamos_Click(object sender, EventArgs e)
         {
@@ -119,7 +153,7 @@ namespace prySistemaPrestamosEquipoComputo
 
         private void frmVentanaInventario_Load(object sender, EventArgs e)
         {
-
+            AplicarPermisos();
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
@@ -132,10 +166,54 @@ namespace prySistemaPrestamosEquipoComputo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmInventarioProductos productos = new frmInventarioProductos();
-            productos.Show();
-            productos.WindowState = FormWindowState.Maximized;
-            this.Hide();
+            conexion = new clsConexion();
+            MySqlConnection con = conexion.getConection();
+            string consulta = @"
+        SELECT
+            e.id_equipo,
+            e.nombre,
+            e.descripcion,
+            e.color,
+            e.cantidad,
+            m.nombre AS Marca,
+            c.nombre AS Categoria
+
+        FROM equipo e
+
+        INNER JOIN marca m
+            ON e.id_marca = m.id_marca
+
+        INNER JOIN categoria c
+            ON e.id_categoria = c.id_categoria
+
+        WHERE c.nombre='Consumible';";
+
+
+            MySqlDataAdapter da = new MySqlDataAdapter(consulta, con);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            dgvInventario.DataSource = dt;
+
+
+            con.Close();
+        }
+
+        private void AplicarPermisos()
+        {
+            // Si es trabajador
+            if (!clsSesion.EsAdministrador)
+            {
+                // Bloquear módulos de administración
+                pcbPrestamos.Enabled = false;
+
+                pcbDevoluciones.Enabled = false;
+                btnAgregarProducto.Enabled = false;
+                // Reportes queda permitido
+                pcbReportes.Enabled = true;
+            }
         }
     }
 

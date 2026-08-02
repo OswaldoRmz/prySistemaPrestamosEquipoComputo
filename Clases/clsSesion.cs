@@ -12,19 +12,14 @@ namespace prySistemaPrestamosEquipoComputo.Clases
         public static string NombreCompleto { get; set; } = "";
         public static string Rol { get; set; } = "";
 
-        public static bool TieneRol(params string[] roles)
+        public static bool EsAdministrador
         {
-            foreach (string rol in roles)
+            get
             {
-                if (Rol.Equals(
-                    rol,
-                    StringComparison.OrdinalIgnoreCase))
-                {
-                    return true;
-                }
+                return Rol.Equals(
+                    "Administrador",
+                    StringComparison.OrdinalIgnoreCase);
             }
-
-            return false;
         }
 
         public static void CerrarSesion()

@@ -60,6 +60,9 @@ namespace prySistemaPrestamosEquipoComputo
             pcbInventario.AccessibleName = "Inventario";
             pcbInventario.AccessibleDescription = "Click para entrar a la pantallla de inventario";
 
+            pcbReportes.AccessibleName = "Reportes";
+            pcbReportes.AccessibleDescription = "Click para entrar a la pantallla de Reportes";
+
             pcbSesion.AccessibleName = "Cerrar sesión";
             pcbSesion.AccessibleDescription = "Click para cerrar sesión";
         }
@@ -146,6 +149,26 @@ namespace prySistemaPrestamosEquipoComputo
             repor.Show();
             repor.WindowState = FormWindowState.Maximized;
             this.Hide();
+        }
+
+        private void AplicarPermisos()
+        {
+            // Si es trabajador
+            if (!clsSesion.EsAdministrador)
+            {
+                // Bloquear módulos de administración
+                pcbPrestamos.Enabled = false;
+
+                pcbDevoluciones.Enabled = false;
+                
+                // Reportes queda permitido
+                pcbReportes.Enabled = true;
+            }
+        }
+
+        private void frmPantallaPrincipal_Load(object sender, EventArgs e)
+        {            
+            AplicarPermisos();
         }
     }
 }

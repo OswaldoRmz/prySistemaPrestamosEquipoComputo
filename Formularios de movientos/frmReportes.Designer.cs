@@ -50,7 +50,15 @@
             this.dgvPrestamosMensuales = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbMes = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dgvMasPrestados = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnTopUsuarios = new System.Windows.Forms.Button();
+            this.dgvUsuariosTop = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbInicio)).BeginInit();
@@ -64,6 +72,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReporteInventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamosMensuales)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMasPrestados)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosTop)).BeginInit();
             this.SuspendLayout();
             // 
             // pcbSesion
@@ -269,6 +281,7 @@
             this.btnReporteEquipos.TabIndex = 4;
             this.btnReporteEquipos.Text = "Generar reporte";
             this.btnReporteEquipos.UseVisualStyleBackColor = true;
+            this.btnReporteEquipos.Click += new System.EventHandler(this.btnReporteEquipos_Click);
             // 
             // label2
             // 
@@ -301,14 +314,14 @@
             this.groupBox1.Size = new System.Drawing.Size(695, 58);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Reporte de equipos más prestados";
+            this.groupBox1.Text = "Reporte de prestamos por mes";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnReporteEquipos);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cmbMes);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dgvPrestamosMensuales);
             this.panel1.Controls.Add(this.groupBox1);
@@ -319,13 +332,13 @@
             this.panel1.Size = new System.Drawing.Size(695, 458);
             this.panel1.TabIndex = 23;
             // 
-            // comboBox1
+            // cmbMes
             // 
-            this.comboBox1.AllowDrop = true;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbMes.AllowDrop = true;
+            this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMes.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMes.FormattingEnabled = true;
+            this.cmbMes.Items.AddRange(new object[] {
             "Enero",
             "Febrero",
             "Marzo",
@@ -338,16 +351,115 @@
             "Octubre",
             "Noviembre ",
             "Diciembre"});
-            this.comboBox1.Location = new System.Drawing.Point(74, 87);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 31);
-            this.comboBox1.TabIndex = 3;
+            this.cmbMes.Location = new System.Drawing.Point(74, 87);
+            this.cmbMes.Name = "cmbMes";
+            this.cmbMes.Size = new System.Drawing.Size(251, 31);
+            this.cmbMes.TabIndex = 3;
+            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(-1, -1);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox2.Size = new System.Drawing.Size(695, 58);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Reporte de equipos con mas solicitudes de prestamos.";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.dgvMasPrestados);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(1123, 15);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(695, 391);
+            this.panel2.TabIndex = 24;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(285, 335);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 48);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Generar reporte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dgvMasPrestados
+            // 
+            this.dgvMasPrestados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMasPrestados.Location = new System.Drawing.Point(3, 64);
+            this.dgvMasPrestados.Name = "dgvMasPrestados";
+            this.dgvMasPrestados.RowHeadersWidth = 51;
+            this.dgvMasPrestados.RowTemplate.Height = 24;
+            this.dgvMasPrestados.Size = new System.Drawing.Size(687, 265);
+            this.dgvMasPrestados.TabIndex = 1;
+            this.dgvMasPrestados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMasPrestados_CellContentClick);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnTopUsuarios);
+            this.panel3.Controls.Add(this.dgvUsuariosTop);
+            this.panel3.Controls.Add(this.groupBox3);
+            this.panel3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(1127, 487);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(695, 391);
+            this.panel3.TabIndex = 25;
+            // 
+            // btnTopUsuarios
+            // 
+            this.btnTopUsuarios.Location = new System.Drawing.Point(285, 335);
+            this.btnTopUsuarios.Name = "btnTopUsuarios";
+            this.btnTopUsuarios.Size = new System.Drawing.Size(122, 48);
+            this.btnTopUsuarios.TabIndex = 4;
+            this.btnTopUsuarios.Text = "Generar reporte";
+            this.btnTopUsuarios.UseVisualStyleBackColor = true;
+            this.btnTopUsuarios.Click += new System.EventHandler(this.btnTopUsuarios_Click);
+            // 
+            // dgvUsuariosTop
+            // 
+            this.dgvUsuariosTop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuariosTop.Location = new System.Drawing.Point(3, 64);
+            this.dgvUsuariosTop.Name = "dgvUsuariosTop";
+            this.dgvUsuariosTop.RowHeadersWidth = 51;
+            this.dgvUsuariosTop.RowTemplate.Height = 24;
+            this.dgvUsuariosTop.Size = new System.Drawing.Size(687, 265);
+            this.dgvUsuariosTop.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(182)))), ((int)(((byte)(226)))));
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(-1, -1);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox3.Size = new System.Drawing.Size(695, 58);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Top 5 usuarios mas solicitantes";
             // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 993);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelDatosUsuario);
             this.Controls.Add(this.pcbSesion);
@@ -379,6 +491,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamosMensuales)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMasPrestados)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosTop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,6 +523,14 @@
         private System.Windows.Forms.DataGridView dgvPrestamosMensuales;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbMes;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvMasPrestados;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnTopUsuarios;
+        private System.Windows.Forms.DataGridView dgvUsuariosTop;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

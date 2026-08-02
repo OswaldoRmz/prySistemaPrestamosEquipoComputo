@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentanaInventario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pcbInventario = new System.Windows.Forms.PictureBox();
             this.pcbDevoluciones = new System.Windows.Forms.PictureBox();
             this.pcbPrestamos = new System.Windows.Forms.PictureBox();
@@ -44,10 +44,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.gbInventario = new System.Windows.Forms.GroupBox();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
-            this.colIdEquipos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRaya = new System.Windows.Forms.Label();
             this.pcbUsuario = new System.Windows.Forms.PictureBox();
             this.pcbSesion = new System.Windows.Forms.PictureBox();
@@ -166,6 +162,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(659, 95);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
@@ -177,6 +174,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(1105, 95);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
@@ -229,20 +227,15 @@
             this.dgvInventario.AllowUserToAddRows = false;
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInventario.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIdEquipos,
-            this.colNombre,
-            this.colSerie,
-            this.colEstado});
             this.dgvInventario.Enabled = false;
             this.dgvInventario.EnableHeadersVisualStyles = false;
             this.dgvInventario.GridColor = System.Drawing.SystemColors.Window;
@@ -255,30 +248,6 @@
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInventario.Size = new System.Drawing.Size(1436, 506);
             this.dgvInventario.TabIndex = 0;
-            // 
-            // colIdEquipos
-            // 
-            this.colIdEquipos.HeaderText = "ID_EQUIPOS";
-            this.colIdEquipos.MinimumWidth = 6;
-            this.colIdEquipos.Name = "colIdEquipos";
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "NOMBRE/TIPO";
-            this.colNombre.MinimumWidth = 6;
-            this.colNombre.Name = "colNombre";
-            // 
-            // colSerie
-            // 
-            this.colSerie.HeaderText = "NÚMERO DE SERIE";
-            this.colSerie.MinimumWidth = 6;
-            this.colSerie.Name = "colSerie";
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "ESTADO";
-            this.colEstado.MinimumWidth = 6;
-            this.colEstado.Name = "colEstado";
             // 
             // lblRaya
             // 
@@ -388,10 +357,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox gbInventario;
         private System.Windows.Forms.DataGridView dgvInventario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdEquipos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSerie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.Label lblRaya;
         private System.Windows.Forms.PictureBox pcbUsuario;
         private System.Windows.Forms.PictureBox pcbSesion;
